@@ -6,7 +6,9 @@ import {getImageUrl} from '../../utils.js';
 import { TranslationContext } from '../TranslationContext/TranslationContext.jsx';
 
 export const Hero = () => {
+
     const { t, i18n } = useContext(TranslationContext);
+    
   return (
     <section className={styles.container}>
         <div className={styles.content}>

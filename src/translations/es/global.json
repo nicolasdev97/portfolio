@@ -10,8 +10,21 @@
     },
     "hero": {
         "title": "Hola, soy Nicolás",
-        "description": "Soy un desarrollador frontend de Cali, Colombia con dos años de experiencia usando React para crear aplicaciones completas y modernas. ¡Dale un vistazo a mis proyectos!",
+        "description": "Soy un desarrollador Frontend de Cali, Colombia con dos años de experiencia usando React para crear aplicaciones completas y modernas. ¡Dale un vistazo a mis proyectos!",
         "contact": "Contáctame",
         "heroImage": "Imagen de mí"
+    },
+    "about": {
+        "title": "Sobre mí",
+        "aboutImage": "Imagen sobre mí",
+        "frontendIcon": "Icono de cursor",
+        "frontendTitle": "Desarrollador Frontend",
+        "frontendDescription": "Soy un desarrollador Frontend con experiencia en crear y optimizar aplicaciones.",
+        "uiIcon": "Icono de UI",
+        "uiTitle": "Diseñador UI",
+        "uiDescription": "He diseñado múltiples aplicaciones teniendo en cuenta la experiencia de usuario para facilitar su posterior desarrollo.",
+        "unityIcon": "Icono de juego",
+        "unityTitle": "Desarrollador Unity",
+        "unityDescription": "He desarrollado entornos interactivos con fines pedagógicos en la plataforma de Unity."
     }
 }

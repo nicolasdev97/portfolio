@@ -10,8 +10,21 @@
     },
     "hero": {
         "title": "Hi, I'm Nicolás",
-        "description": "I'm a frontend developer from Cali, Colombia with two years of experience using React to build complete and modern applications. Check out my projects!",
+        "description": "I'm a Frontend developer from Cali, Colombia with two years of experience using React to build complete and modern applications. Check out my projects!",
         "contact": "Contact me",
         "heroImage": "Image of me"
+    },
+    "about": {
+        "title": "About",
+        "aboutImage": "Image about me",
+        "frontendIcon": "Cursor icon",
+        "frontendTitle": "Frontend developer",
+        "frontendDescription": "I'm a Frontend developer with experience in build and optimized aplications.",
+        "uiIcon": "UI icon",
+        "uiTitle": "UI designer",
+        "uiDescription": "I have designed multiple aplications considering the user experience to facilitate their subsequent development.",
+        "unityIcon": "Game icon",
+        "unityTitle": "Unity developer",
+        "unityDescription": "I have developed interactive environments with pedagogical purposes on the Unity platform."
     }
 }
