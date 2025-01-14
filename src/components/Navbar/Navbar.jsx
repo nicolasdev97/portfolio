@@ -1,15 +1,28 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
 import styles from './Navbar.module.css';
 import {getImageUrl} from '../../utils.js';
 
+import { TranslationContext } from '../TranslationContext/TranslationContext.jsx';
+
 export const Navbar = () => {
+
+  const { t, i18n } = useContext(TranslationContext);
+  const translateButton = () => {
+    setIsEnglish(!isEnglish);
+    toggleLanguage();
+  }
+  const [isEnglish, setIsEnglish] = useState(false);
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === 'es' ? 'en' : 'es';
+    i18n.changeLanguage(newLanguage);
+  };
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={styles.navbar}>
-        <a className={styles.title} href='/'>Portfolio</a>
+        <a className={styles.title} href='/'>{t('nav.title')}</a>
         <div className={styles.menu}>
             <img
                 className={styles.menuBtn}
@@ -18,17 +31,25 @@ export const Navbar = () => {
                   ? getImageUrl('nav/closeIcon.png')
                   : getImageUrl('nav/menuIcon.png')
                 }
-                alt='menu-button'
+                alt={t('nav.menuBtn')}
                 onClick={() => setMenuOpen(!menuOpen)}
             />
             <ul
               className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
               onClick={() => setMenuOpen(false)}
               >
-                <li><a href='#about'>About</a></li>
-                <li><a href='#experience'>Experience</a></li>
-                <li><a href='#projects'>Projects</a></li>
-                <li><a href='#contact'>Contact</a></li>
+                <li><a href='#about'>{t('nav.about')}</a></li>
+                <li><a href='#experience'>{t('nav.experience')}</a></li>
+                <li><a href='#projects'>{t('nav.projects')}</a></li>
+                <li><a href='#contact'>{t('nav.contact')}</a></li>
+                <li>
+                  <button
+                    className={`${styles.menuButton} ${isEnglish && styles.menuButtonPressed}`}
+                    onClick={translateButton}
+                  >
+                    {t('nav.language')}
+                  </button>
+                </li>
             </ul>
         </div>
     </nav>

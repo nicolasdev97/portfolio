@@ -27,6 +27,7 @@
 
 .menuItems {
     display: flex;
+    align-items: center;
     gap: 47px;
     list-style: none;
 }
@@ -35,6 +36,43 @@
     font-size: 25px;
     color: var(--color-text);
     text-decoration: none;
+}
+
+.menuButton {
+    height: 35px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-image: url('../../../public/assets/nav/translateIcon.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    padding-left: 40px;
+    transition: 0.3s;
+}
+
+.menuButtonPressed {
+    background-position: 83px center;
+    padding-right: 73px;
+}
+
+@media screen and (max-width: 1150px) {
+    .menuItems {
+        gap: 10px;
+    }
+
+    .menuItems a {
+        font-size: 20px;
+    }
+
+    .menuItems button {
+        height: 30px;
+    }
 }
 
 @media screen and (max-width: 830px) {
@@ -77,5 +115,19 @@
     .menuOpen {
         display: flex;
         z-index: 1;
+    }
+
+    .menuItems button {
+        height: 25px;
+        width: 90px;
+        background-color: transparent;
+        background-image: none;
+        padding: 0px;
+        font-size: 20px;
+        color: var(--color-text);
+    }
+
+    .menuItems button:hover {
+        padding: 0px;
     }
 }

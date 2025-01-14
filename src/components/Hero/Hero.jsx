@@ -1,28 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import styles from './Hero.module.css';
 import {getImageUrl} from '../../utils.js';
 
+import { TranslationContext } from '../TranslationContext/TranslationContext.jsx';
+
 export const Hero = () => {
+    const { t, i18n } = useContext(TranslationContext);
   return (
     <section className={styles.container}>
         <div className={styles.content}>
-            <h1 className={styles.title}>Hi, I'm Nicolas</h1>
+            <h1 className={styles.title}>{t('hero.title')}</h1>
             <p className={styles.description}>
-                I'm a frontend developer with 2 years
-                of experience using React and Angular.
-                Check out my projects!
+                {t('hero.description')}
             </p>
             <a
                 href='mailto: nicolas.po.im@gmail.com'
                 className={styles.contactBtn}
             >
-                Contact me
+                {t('hero.contact')}
             </a>
         </div>
         <img
             src={getImageUrl('hero/heroImage.png')}
-            alt='Hero image of me'
+            alt={t('hero.heroImage')}
             className={styles.heroImg}
         />
         <div className={styles.topBlur}/>

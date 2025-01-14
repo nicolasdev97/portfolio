@@ -1,0 +1,17 @@
+{
+    "nav": {
+        "title": "Portafolio",
+        "menuBtn": "Botón de menú",
+        "about": "Sobre mí",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto",
+        "language": "English"
+    },
+    "hero": {
+        "title": "Hola, soy Nicolás",
+        "description": "Soy un desarrollador frontend de Cali, Colombia con dos años de experiencia usando React para crear aplicaciones completas y modernas. ¡Dale un vistazo a mis proyectos!",
+        "contact": "Contáctame",
+        "heroImage": "Imagen de mí"
+    }
+}

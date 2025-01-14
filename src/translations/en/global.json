@@ -1,0 +1,17 @@
+{
+    "nav": {
+        "title": "Portfolio",
+        "menuBtn": "Menu button",
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "language": "Español"
+    },
+    "hero": {
+        "title": "Hi, I'm Nicolás",
+        "description": "I'm a frontend developer from Cali, Colombia with two years of experience using React to build complete and modern applications. Check out my projects!",
+        "contact": "Contact me",
+        "heroImage": "Image of me"
+    }
+}
