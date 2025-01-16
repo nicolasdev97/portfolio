@@ -1,26 +1,32 @@
 [
     {
-      "title": "Project A",
+      "projectTitle": "Project A",
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://www.github.com",
+      "tituloProyecto": "Proyecto A",
+      "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     },
     {
-      "title": "Project B",
+      "projectTitle": "Project B",
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node", "Sass"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://www.github.com",
+      "tituloProyecto": "Proyecto B",
+      "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     },
     {
-      "title": "Project C",
+      "projectTitle": "Project C",
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
       "demo": "https://www.example.com",
-      "source": "https://www.github.com"
+      "source": "https://www.github.com",
+      "tituloProyecto": "Proyecto C",
+      "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     }
 ]

@@ -29,5 +29,8 @@
     },
     "experience": {
         "title": "Experiencia"
+    },
+    "projects": {
+        "title": "Proyectos"
     }
 }
