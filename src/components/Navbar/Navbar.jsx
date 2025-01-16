@@ -7,16 +7,7 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 
 export const Navbar = () => {
 
-  const { t, i18n } = useContext(TranslationContext);
-  const translateButton = () => {
-    setIsEnglish(!isEnglish);
-    toggleLanguage();
-  }
-  const [isEnglish, setIsEnglish] = useState(false);
-  const toggleLanguage = () => {
-    const newLanguage = i18n.language === 'es' ? 'en' : 'es';
-    i18n.changeLanguage(newLanguage);
-  };
+  const { t, i18n, toggleLanguage } = useContext(TranslationContext);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -44,8 +35,8 @@ export const Navbar = () => {
                 <li><a href='#contact'>{t('nav.contact')}</a></li>
                 <li>
                   <button
-                    className={`${styles.menuButton} ${isEnglish && styles.menuButtonPressed}`}
-                    onClick={translateButton}
+                    className={`${styles.menuButton} ${i18n.language && styles.menuButtonPressed}`}
+                    onClick={toggleLanguage}
                   >
                     {t('nav.language')}
                   </button>

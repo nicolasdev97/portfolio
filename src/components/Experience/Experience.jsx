@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import styles from './Experience.module.css';
 import {getImageUrl} from '../../utils.js';
 import skills from '../../data/skills.json';
 import history from '../../data/history.json';
 
+import { TranslationContext } from '../TranslationContext/TranslationContext.jsx';
+
 export const Experience = () => {
+
+    const { t, i18n } = useContext(TranslationContext);
+    
   return (
     <section className={styles.container} id='experience'>
-        <h2 className={styles.title}>Experience</h2>
+        <h2 className={styles.title}>{t('experience.title')}</h2>
         <div className={styles.content}>
             <div className={styles.skills}>
                 {
@@ -37,14 +42,22 @@ export const Experience = () => {
                                     alt={`${historyItem.organisation}`}
                                 />
                                 <div className={styles.historyItemDetails}>
-                                    <h3>{`${historyItem.role}, ${historyItem.organisation}`}</h3>
-                                    <p>{`${historyItem.startDate}, ${historyItem.endDate}`}</p>
+                                    <h3>{`${i18n.language === 'es' ? `${historyItem.rol}` : `${historyItem.role}`}, ${historyItem.organisation}`}</h3>
+                                    <p>{i18n.language === 'es' ? `${historyItem.fechaInicio}, ${historyItem.fechaFin}` : `${historyItem.startDate}, ${historyItem.endDate}`}</p>
                                     <ul>
-                                        {historyItem.experiences.map((experience, id) => {
-                                            return (
-                                                <li key={id}>{experience}</li>
-                                            );
-                                        })}
+                                        {
+                                            i18n.language === 'es'
+                                            ? historyItem.experiencias.map((exp, id) => {
+                                                return (
+                                                    <li key={id}>{exp}</li>
+                                                );
+                                            })
+                                            : historyItem.experiences.map((exp, id) => {
+                                                return (
+                                                    <li key={id}>{exp}</li>
+                                                )
+                                            })
+                                        }
                                     </ul>
                                 </div>
                             </li>

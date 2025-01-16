@@ -26,5 +26,8 @@
         "unityIcon": "Game icon",
         "unityTitle": "Unity developer",
         "unityDescription": "I have developed interactive environments with pedagogical purposes on the Unity platform."
+    },
+    "experience": {
+        "title": "Experience"
     }
 }
