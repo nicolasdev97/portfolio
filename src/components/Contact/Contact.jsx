@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import styles from './Contact.module.css';
 import {getImageUrl} from '../../utils.js';
 
+import { TranslationContext } from '../TranslationContext/TranslationContext.jsx';
+
 export const Contact = () => {
+
+    const { t } = useContext(TranslationContext);
+
   return (
     <footer className={styles.container} id='contact'>
         <div className={styles.text}>
-            <h2>Contact</h2>
-            <p>Feel free to reach out!</p>
+            <h2>{t('contact.title')}</h2>
+            <p>{t('contact.text')}</p>
         </div>
         <ul className={styles.links}>
             <li className={styles.link}>

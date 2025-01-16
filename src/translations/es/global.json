@@ -32,5 +32,9 @@
     },
     "projects": {
         "title": "Proyectos"
+    },
+    "contact": {
+        "title": "Contacto",
+        "text": "¡No dudes en comunicarte!"
     }
 }
