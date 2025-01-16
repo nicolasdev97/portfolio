@@ -31,7 +31,8 @@
         "title": "Experiencia"
     },
     "projects": {
-        "title": "Proyectos"
+        "title": "Proyectos",
+        "code": "Código"
     },
     "contact": {
         "title": "Contacto",

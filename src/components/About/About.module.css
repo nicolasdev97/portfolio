@@ -25,15 +25,18 @@
     align-items: center;
 }
 
-.aboutImage {
-    width: 35%;
-}
+/* .aboutImage {
+    width: 20%;
+    border-radius: 30px;
+    margin-right: 10%;
+} */
 
 .aboutItems {
     color: var(--color-text);
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-top: 25px;
 }
 
 .aboutItem {
@@ -68,18 +71,20 @@
 
 @media screen and (max-width: 830px) {
     .container {
-        background-color: transparent;
-        padding-left: 0;
-        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 0;
     }
 
     .content {
         flex-direction: column;
     }
 
-    .aboutImage {
+    /* .aboutImage {
         display: none;
-    }
+    } */
 
     .aboutItems {
         margin-top: 29px;

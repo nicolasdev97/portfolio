@@ -6,7 +6,7 @@
     border-radius: 10px;
     background: linear-gradient(
         180deg,
-        #576cbc 0%,
+        #1b3e7e 0%,
         #132a53 100%
     );
     box-shadow: 0 16px 14px 0 #04152d;
@@ -21,12 +21,14 @@
 .title {
     font-size: 25px;
     font-weight: 700;
+    text-align: center;
 }
 
 .description {
     margin-top: 6px;
     font-size: 25px;
     font-weight: 400;
+    text-align: justify;
 }
 
 .skills {
@@ -35,6 +37,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 6px;
     list-style: none;
 }
@@ -60,6 +63,12 @@
     font-size: 30px;
     font-weight: 600;
     border-radius: 100px;
-    background: var(--color-primary);
+    background: var(--color-button);
     padding: 1px 22px;
+    transition: 0.3s;
+}
+
+.link:hover {
+    background: var(--color-text);
+    color: var(--color-button);
 }
