@@ -46,6 +46,16 @@
     letter-spacing: 1.5px;
 }
 
+@media screen and (max-width: 1050px) {
+    .text h2 {
+        font-size: 75px;
+    }
+
+    .link a {
+        font-size: 23px;
+    }
+}
+
 @media screen and (max-width: 830px) {
     .container {
         flex-direction: column;
@@ -54,5 +64,14 @@
 
     .links {
         align-items: center;
+    }
+
+    .text h2 {
+        font-size: 70px;
+    }
+
+    .link a {
+        font-size: 18px;
+        letter-spacing: 0.1px;
     }
 }

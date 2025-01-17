@@ -5,6 +5,7 @@ import { Experience } from './components/Experience/Experience'
 import { Hero } from './components/Hero/Hero'
 import { Navbar } from './components/Navbar/Navbar'
 import { Projects } from './components/Projects/Projects'
+import { TranslateButton } from './components/TranslateButton/TranslateButton'
 import TranslationProvider from './components/TranslationContext/TranslationContext'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Experience />
         <Projects />
         <Contact />
+        <TranslateButton />
       </TranslationProvider>
     </div>
   )

@@ -80,7 +80,7 @@
 
 .historyItem img {
     padding-top: 9px;
-    width: 50px;
+    width: 70px;
 }
 
 .historyItemDetails {
@@ -121,5 +121,34 @@
     .history {
         width: 100%;
         gap: 9px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .historyItem img {
+        display: none;
+    }
+    
+    .historyItemDetails h3 {
+        font-size: 25px;
+    }
+
+    .historyItemDetails p {
+        font-size: 15px;
+    }
+
+    .historyItemDetails ul {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .skillImageContainer {
+        width: 100px;
+        height: 100px;
+    }
+
+    .skillImageContainer img {
+        width: 55px;
     }
 }

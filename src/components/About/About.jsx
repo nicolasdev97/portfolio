@@ -13,11 +13,6 @@ export const About = () => {
     <section className={styles.container} id='about'>
         <h2 className={styles.title}>{t('about.title')}</h2>
         <div className={styles.content}>
-            {/* <img
-                src={getImageUrl('about/meAbout.png')}
-                alt={t('about.aboutImage')}
-                className={styles.aboutImage}
-            /> */}
             <ul className={styles.aboutItems}>
                 <li className={styles.aboutItem}>
                     <img

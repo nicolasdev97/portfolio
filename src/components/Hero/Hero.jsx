@@ -7,7 +7,7 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 
 export const Hero = () => {
 
-    const { t, i18n } = useContext(TranslationContext);
+    const { t } = useContext(TranslationContext);
     
   return (
     <section className={styles.container}>

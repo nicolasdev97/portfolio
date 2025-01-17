@@ -25,12 +25,6 @@
     align-items: center;
 }
 
-/* .aboutImage {
-    width: 20%;
-    border-radius: 30px;
-    margin-right: 10%;
-} */
-
 .aboutItems {
     color: var(--color-text);
     display: flex;
@@ -81,10 +75,6 @@
     .content {
         flex-direction: column;
     }
-
-    /* .aboutImage {
-        display: none;
-    } */
 
     .aboutItems {
         margin-top: 29px;
