@@ -27,7 +27,8 @@
 
 .aboutItems {
     color: var(--color-text);
-    display: flex;
+    display: grid;
+    grid-auto-rows: minmax(151px, auto);
     flex-direction: column;
     gap: 50px;
     margin-top: 25px;
@@ -54,13 +55,12 @@
     background-size: 100% 100%;
 }
 
-.aboutItem h3 {
+.aboutItemText {
     font-size: 25px;
-    font-weight: 600;
 }
 
-.aboutItem p {
-    font-size: 25px;
+.aboutItemText h3 {
+    font-weight: 600;
 }
 
 @media screen and (max-width: 830px) {
@@ -81,6 +81,7 @@
     }
 
     .aboutItem {
+        align-items: flex-start;
         padding-left: 0;
         padding-right: 0;
     }

@@ -125,3 +125,17 @@
         width: 270px;
     }
 }
+
+@media screen and (max-width: 530px) {
+    .title {
+        font-size: 62px;
+    }
+
+    .description {
+        font-size: 23px;
+    }
+
+    .contactBtn {
+        font-size: 23px;
+    }
+}

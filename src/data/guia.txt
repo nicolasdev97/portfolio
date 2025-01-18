@@ -1,8 +1,12 @@
 Qué voy a cambiar:
-1-Título de portafolio que aparece en la pestaña del navegador.
-2-Sección de experience.
-3-Sección de contact.
+1-Colores. (Listo)
+2-Contact. (Listo)
+3-TranslateButton. (Listo)
+4-Projects.
+5-Experience.
 Basarme en:
 https://brittanychiang.com
 Y en:
 https://www.youtube.com/watch?v=t5AE66WgQD0
+Tamaños:
+1000, 830, 530.

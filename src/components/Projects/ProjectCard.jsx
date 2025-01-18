@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styles from './ProjectCard.module.css';
 import {getImageUrl} from '../../utils.js';
 
-export const ProjectCard = ({project : {projectTitle, imageSrc, description, skills, demo, source, tituloProyecto, descripcion}, t, i18n}) => {
+export const ProjectCard = ({project : {projectTitle, imageSrc, description, skills, source, tituloProyecto, descripcion}, t, i18n}) => {
+
+    const [maxHeight, setMaxHeight] = useState(0);
+
+    useEffect(() => {
+        // Obtener todos los skills
+        const skillsElements = document.querySelectorAll(`.${styles.skills}`);
+    
+        // Encontrar la altura más alta de los skills
+        const heights = Array.from(skillsElements).map(element => element.offsetHeight);
+        const maxHeight = Math.max(...heights);
+    
+        // Establecer la altura máxima en cada skills
+        skillsElements.forEach(element => {
+          element.style.height = `${maxHeight}px`;
+        });
+    
+        setMaxHeight(maxHeight);
+      }, [skills]); // Solo se vuelve a ejecutar cuando la lista de skills cambie
+
   return (
     <div className={styles.container}>
         <img
@@ -22,10 +41,10 @@ export const ProjectCard = ({project : {projectTitle, imageSrc, description, ski
                 })
             }
         </ul>
-        <div className={styles.links}>
+        {/* <div className={styles.links}>
             <a href={demo} className={styles.link}>Demo</a>
             <a href={source} className={styles.link}>{t('projects.code')}</a>
-        </div>
+        </div> */}
     </div>
   )
 }

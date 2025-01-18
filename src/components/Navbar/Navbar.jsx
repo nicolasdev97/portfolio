@@ -11,8 +11,19 @@ export const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY !== 0) {
+      setIsScrolled(true);
+    }
+    else {
+      setIsScrolled(false);
+    }
+  });
+
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${isScrolled && styles.navbarFixed}`}>
         <a className={styles.title} href='/'>{t('nav.title')}</a>
         <div className={styles.menu}>
             <img
