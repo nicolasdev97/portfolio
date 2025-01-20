@@ -10,7 +10,7 @@ export const Hero = () => {
     const { t } = useContext(TranslationContext);
     
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id='hero'>
         <div className={styles.content}>
             <h1 className={styles.title}>{t('hero.title')}</h1>
             <p className={styles.description}>

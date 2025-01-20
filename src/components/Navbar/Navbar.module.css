@@ -47,18 +47,29 @@
     list-style: none;
 }
 
+.menuItems li {
+    transition: 0.3s;
+}
+
+.menuItems li.active {
+    opacity: 1;
+}
+
+.menuItems li.inactive {
+    opacity: 0.5;
+}
+
+.menuItems li:hover {
+    opacity: 1;
+}
+
 .menuItems a {
     font-size: 25px;
     color: var(--color-text);
     text-decoration: none;
-    opacity: 50%;
 }
 
-.menuItems a:hover {
-    opacity: 100%;
-}
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1130px) {
     .menuItems {
         gap: 10px;
     }
@@ -98,7 +109,7 @@
         background: rgb(25, 55, 109);
         background: linear-gradient(
             0deg,
-            rgba(25, 55, 109, 0.2) 0%,
+            rgb(11, 24, 48) 0%,
             rgba(25, 55, 109, 1) 100%
         );
         padding: 24px 33px;
@@ -106,7 +117,7 @@
     }
 
     .menuItems a {
-        opacity: 100%;
+        opacity: 1;
     }
 
     .menuOpen {

@@ -1,9 +1,9 @@
 [
     {
-      "role": "Web/Unity Developer",
+      "role": "Frontend Developer",
       "organisation": "Corp. Talentum",
-      "startDate": "Aug, 2022",
-      "endDate": "Dec, 2024",
+      "startDate": "Jan. 2024",
+      "endDate": "Dec. 2024",
       "experiences": [
         "Improved my code to make it robust and scalable.",
         "Learned React hooks to create interactive interfaces.",
@@ -11,9 +11,53 @@
         "Developed interactive pedagogical environments in Unity."
       ],
       "imageSrc": "history/talentum.png",
-      "rol": "Desarrollador Web/Unity",
-      "fechaInicio": "Ago, 2022",
-      "fechaFin": "Dic, 2024",
+      "rol": "Desarrollador Frontend",
+      "fechaInicio": "Ene. 2024",
+      "fechaFin": "Dic. 2024",
+      "experiencias": [
+        "Mejoré mi código para que fuera robusto y escalable.",
+        "Aprendí hooks de React para crear interfaces interactivas.",
+        "Utilicé Angular para desarrollar aplicaciones web escalables.",
+        "Desarrollé entornos interactivos pedagógicos en Unity."
+      ]
+    },
+    {
+      "role": "Unity Developer",
+      "organisation": "Corp. Talentum",
+      "startDate": "Aug. 2022",
+      "endDate": "Dec. 2023",
+      "experiences": [
+        "Improved my code to make it robust and scalable.",
+        "Learned React hooks to create interactive interfaces.",
+        "Used Angular for developing scalable web applications.",
+        "Developed interactive pedagogical environments in Unity."
+      ],
+      "imageSrc": "history/talentum.png",
+      "rol": "Desarrollador Unity",
+      "fechaInicio": "Ago. 2022",
+      "fechaFin": "Dic. 2023",
+      "experiencias": [
+        "Mejoré mi código para que fuera robusto y escalable.",
+        "Aprendí hooks de React para crear interfaces interactivas.",
+        "Utilicé Angular para desarrollar aplicaciones web escalables.",
+        "Desarrollé entornos interactivos pedagógicos en Unity."
+      ]
+    },
+    {
+      "role": "Frontend Developer",
+      "organisation": "Freelance",
+      "startDate": "Jan. 2022",
+      "endDate": "Jun. 2022",
+      "experiences": [
+        "Improved my code to make it robust and scalable.",
+        "Learned React hooks to create interactive interfaces.",
+        "Used Angular for developing scalable web applications.",
+        "Developed interactive pedagogical environments in Unity."
+      ],
+      "imageSrc": "history/talentum.png",
+      "rol": "Desarrollador Frontend",
+      "fechaInicio": "Ene. 2022",
+      "fechaFin": "Jun. 2022",
       "experiencias": [
         "Mejoré mi código para que fuera robusto y escalable.",
         "Aprendí hooks de React para crear interfaces interactivas.",

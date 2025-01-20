@@ -37,11 +37,11 @@
 .link {
     display: flex;
     align-items: center;
-    opacity: 50%;
+    opacity: 0.5;
 }
 
 .link:hover {
-    opacity: 100%;
+    opacity: 1;
 }
 
 @media screen and (max-width: 830px) {

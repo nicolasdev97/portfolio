@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProjectCard.module.css';
 import {getImageUrl} from '../../utils.js';
 
-export const ProjectCard = ({project : {projectTitle, imageSrc, description, skills, source, tituloProyecto, descripcion}, t, i18n}) => {
+export const ProjectCard = ({project : {projectTitle, imageSrc, description, skills, source, tituloProyecto, descripcion}, t, i18n, isHovered, isAnyHovered, onHover, onHoverOut}) => {
+
+    const opacity = isHovered || !isAnyHovered ? 1 : 0.5;
 
     const [maxHeight, setMaxHeight] = useState(0);
 
@@ -24,7 +26,13 @@ export const ProjectCard = ({project : {projectTitle, imageSrc, description, ski
       }, [skills]); // Solo se vuelve a ejecutar cuando la lista de skills cambie
 
   return (
-    <div className={styles.container}>
+    <a
+        href={source}
+        className={styles.container}
+        onMouseEnter={onHover}
+        onMouseLeave={onHoverOut}
+        style={{opacity}}
+    >
         <img
             src={getImageUrl(imageSrc)}
             alt={`Image of ${projectTitle}`}
@@ -41,10 +49,6 @@ export const ProjectCard = ({project : {projectTitle, imageSrc, description, ski
                 })
             }
         </ul>
-        {/* <div className={styles.links}>
-            <a href={demo} className={styles.link}>Demo</a>
-            <a href={source} className={styles.link}>{t('projects.code')}</a>
-        </div> */}
-    </div>
+    </a>
   )
 }

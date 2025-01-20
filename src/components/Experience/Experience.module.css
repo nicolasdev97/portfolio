@@ -1,7 +1,6 @@
 @import '../../vars.css';
 
 .container {
-    color: var(--color-text);
     margin-top: 79px;
     margin-left: 10%;
     margin-right: 10%;
@@ -16,139 +15,148 @@
 }
 
 .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 14px;
-}
-
-.skills {
-    width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 37px;
-}
-
-.skill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 11px;
-}
-
-.skillImageContainer {
-    background-color: var(--color-secondary);
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-}
-
-.skillImageContainer img {
-    width: 75px;
-}
-
-.skill p {
-    font-size: 25px;
-    font-family: var(--font-roboto);
-    font-weight: 500;
+    margin-top: 37px;
 }
 
 .history {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    position: relative;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.history::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 10px;
+    animation: moveline 6s linear forwards;
+}
+
+@keyframes moveline {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
 }
 
 .historyItem {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 17px;
-    background: #19376d;
-    background: linear-gradient(
-        90deg,
-        #19376d 0%,
-        rgba(25, 55, 109, 0) 100%
-    );
-    border-radius: 10px;
-    padding: 24px;
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    z-index: 3;
+    animation: movedown 1s linear forwards;
+}
+
+.historyItem:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.historyItem:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.historyItem:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes movedown {
+    0% {
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.historyItemLeft {
+    left: 0;
+}
+
+.historyItemRight {
+    left: 50%;
 }
 
 .historyItem img {
-    padding-top: 9px;
-    width: 70px;
+    position: absolute;
+    width: 40px;
+    border-radius: 5px;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+
+.historyItemRight img {
+    left: -20px;
 }
 
 .historyItemDetails {
-    font-family: var(--font-roboto);
-}
-
-.historyItemDetails h3 {
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.historyItemDetails p {
-    font-size: 20px;
-    font-weight: 300;
+    padding: 20px 30px;
+    background: #fff;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
 }
 
 .historyItemDetails ul {
-    margin-top: 6px;
-    list-style-position: outside;
-    font-size: 23px;
-    list-style-type: disc;
-    margin-left: 17px;
+    list-style: none;
+}
+
+.leftArrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #fff;
+    right: -15px;
+}
+
+.rightArrow {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    left: -15px;
 }
 
 @media screen and (max-width: 830px) {
-    .content {
-        flex-direction: column;
-        align-items: center;
-        gap: 34px;
+    .history::after {
+        left: 31px;
     }
 
-    .skills {
+    .historyItem {
         width: 100%;
-        flex-direction: row;
-        justify-content: center;
+        padding-left: 80px;
+        padding-right: 25px;
     }
 
-    .history {
-        width: 100%;
-        gap: 9px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .historyItem img {
-        display: none;
-    }
-    
-    .historyItemDetails h3 {
-        font-size: 25px;
+    .historyItemRight {
+        left: 0;
     }
 
-    .historyItemDetails p {
-        font-size: 15px;
+    .historyItem img, .historyItemRigth img {
+        left: 10px;
     }
 
-    .historyItemDetails ul {
-        font-size: 18px;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .skillImageContainer {
-        width: 100px;
-        height: 100px;
-    }
-
-    .skillImageContainer img {
-        width: 55px;
+    .leftArrow, .rightArrow {
+        border-right: 15px solid #fff;
+        border-left: 0;
+        left: -15px;
     }
 }

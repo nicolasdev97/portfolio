@@ -15,7 +15,7 @@ export const Experience = () => {
     <section className={styles.container} id='experience'>
         <h2 className={styles.title}>{t('experience.title')}</h2>
         <div className={styles.content}>
-            <div className={styles.skills}>
+            {/* <div className={styles.skills}>
                 {
                     skills.map((skill, id) => {
                         return (
@@ -31,12 +31,12 @@ export const Experience = () => {
                         );
                     })
                 }
-            </div>
+            </div> */}
             <ul className={styles.history}>
                 {
                     history.map((historyItem, id) => {
                         return (
-                            <li key={id} className={styles.historyItem}>
+                            <li key={id} className={`${styles.historyItem} ${id%2 === 0 ? `${styles.historyItemLeft}` : `${styles.historyItemRight}`}`}>
                                 <img
                                     src={getImageUrl(historyItem.imageSrc)}
                                     alt={`${historyItem.organisation}`}
@@ -59,6 +59,7 @@ export const Experience = () => {
                                             })
                                         }
                                     </ul>
+                                    <span className={`${id%2 === 0 ? `${styles.leftArrow}` : `${styles.rightArrow}`}`}></span>
                                 </div>
                             </li>
                         );

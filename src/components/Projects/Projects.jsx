@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 
 import styles from './Projects.module.css';
 import projects from '../../data/projects.json';
@@ -9,6 +9,8 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 export const Projects = () => {
 
     const { t, i18n } = useContext(TranslationContext);
+
+    const [isHovered, setIsHover] = useState(null);
 
   return (
     <section className={styles.container} id='projects'>
@@ -22,6 +24,10 @@ export const Projects = () => {
                             project={project}
                             t={t}
                             i18n={i18n}
+                            isHovered={isHovered === id}
+                            isAnyHovered={isHovered !== null}
+                            onHover={() => setIsHover(id)}
+                            onHoverOut={() => setIsHover(null)}
                         />
                     );
                 })

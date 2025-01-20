@@ -1,12 +1,12 @@
-Qué voy a cambiar:
-1-Colores. (Listo)
-2-Contact. (Listo)
-3-TranslateButton. (Listo)
-4-Projects.
-5-Experience.
+Pendiente:
+1-Organizar el codigo.
+2-Texto de hero.
+3-Texto de about.
+4-Texto de experience.
+5-Pendiente el projects.
 Basarme en:
 https://brittanychiang.com
 Y en:
 https://www.youtube.com/watch?v=t5AE66WgQD0
 Tamaños:
-1000, 830, 530.
+1130, 830, 530.

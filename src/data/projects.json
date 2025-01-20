@@ -4,7 +4,7 @@
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
-      "source": "https://www.github.com",
+      "source": "https://github.com/nicolasdev97",
       "tituloProyecto": "Proyecto A",
       "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     },
@@ -13,7 +13,7 @@
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node", "Sass"],
-      "source": "https://www.github.com",
+      "source": "https://github.com/nicolasdev97",
       "tituloProyecto": "Proyecto B",
       "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     },
@@ -22,7 +22,7 @@
       "imageSrc": "projects/project.png",
       "description": "This is a project made to learn the latest languages by building an app.",
       "skills": ["React", "Express", "Node"],
-      "source": "https://www.github.com",
+      "source": "https://github.com/nicolasdev97",
       "tituloProyecto": "Proyecto C",
       "descripcion": "Este es un proyecto realizado para aprender los últimos idiomas mediante la creación de una aplicación."
     }
