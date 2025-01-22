@@ -7,7 +7,7 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 
 export const About = () => {
 
-    const { t, i18n } = useContext(TranslationContext);
+    const { t } = useContext(TranslationContext);
     
   return (
     <section className={styles.container} id='about'>
