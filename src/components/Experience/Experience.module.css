@@ -105,6 +105,7 @@
     position: relative;
     border-radius: 6px;
     font-size: 15px;
+    text-align: justify;
 }
 
 .historyItemDetails ul {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import styles from './About.module.css';
 import {getImageUrl} from '../../utils.js';
@@ -8,6 +8,20 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 export const About = () => {
 
     const { t } = useContext(TranslationContext);
+
+    useEffect (() => {
+        // Obtener todos los items
+        const aboutItems = document.querySelectorAll(`.${styles.aboutItem}`);
+
+        // Encontrar la altura más alta de los items
+        const heights = Array.from(aboutItems).map(element => element.offsetHeight);
+        const maxHeight = Math.max(...heights);
+
+        // Establecer la altura máxima en cada item
+        aboutItems.forEach(element => {
+            element.style.height = `${maxHeight}px`;
+        });
+    }, []); // Solo se ejecuta una vez
     
   return (
     <section className={styles.container} id='about'>

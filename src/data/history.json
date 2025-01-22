@@ -5,20 +5,14 @@
       "startDate": "Jan. 2024",
       "endDate": "Dec. 2024",
       "experiences": [
-        "Improved my code to make it robust and scalable.",
-        "Learned React hooks to create interactive interfaces.",
-        "Used Angular for developing scalable web applications.",
-        "Developed interactive pedagogical environments in Unity."
+        "I developed interactive interfaces that allowed storing, reading, editing and deleting information. I used React with Typescript and improved the use of hooks to obtain a robust and scalable product."
       ],
       "imageSrc": "history/talentumIcon.png",
       "rol": "Desarrollador Frontend",
       "fechaInicio": "Ene. 2024",
       "fechaFin": "Dic. 2024",
       "experiencias": [
-        "Mejoré mi código para que fuera robusto y escalable.",
-        "Aprendí hooks de React para crear interfaces interactivas.",
-        "Utilicé Angular para desarrollar aplicaciones web escalables.",
-        "Desarrollé entornos interactivos pedagógicos en Unity."
+        "Desarrollé interfaces interactivas que permitían almacenar, leer, editar y borrar información. Utilicé 'React' con 'Typescript' y mejoré el uso de los 'hooks' para obtener un producto robusto y escalable."
       ]
     },
     {
@@ -27,20 +21,14 @@
       "startDate": "Aug. 2022",
       "endDate": "Dec. 2023",
       "experiences": [
-        "Improved my code to make it robust and scalable.",
-        "Learned React hooks to create interactive interfaces.",
-        "Used Angular for developing scalable web applications.",
-        "Developed interactive pedagogical environments in Unity."
+        "I developed interactive environments for educational purposes on the Unity platform using the C# programming language. During this process, together with UI/UX designers, we worked to create immersive and intuitive experiences based on playful mechanics in order to facilitate user learning."
       ],
       "imageSrc": "history/talentumIcon.png",
       "rol": "Desarrollador Unity",
       "fechaInicio": "Ago. 2022",
       "fechaFin": "Dic. 2023",
       "experiencias": [
-        "Mejoré mi código para que fuera robusto y escalable.",
-        "Aprendí hooks de React para crear interfaces interactivas.",
-        "Utilicé Angular para desarrollar aplicaciones web escalables.",
-        "Desarrollé entornos interactivos pedagógicos en Unity."
+        "Desarrollé entornos interactivos con fines pedagógicos en la plataforma de Unity utilizando el lenguaje de programación C#. Durante este proceso, de la mano de los diseñadores de UI/UX trabajamos para crear experiencias inmersivas e intuitivas basadas en mecánicas lúdicas con el fin de facilitar el aprendizaje de los usuarios."
       ]
     },
     {
@@ -49,20 +37,14 @@
       "startDate": "Jan. 2022",
       "endDate": "Jun. 2022",
       "experiences": [
-        "Improved my code to make it robust and scalable.",
-        "Learned React hooks to create interactive interfaces.",
-        "Used Angular for developing scalable web applications.",
-        "Developed interactive pedagogical environments in Unity."
+        "I designed and developed informational websites. I used Figma for the design and together with React I created the final product. I used React's 'props' and 'context' to transfer information through the different modules, making the applications easily scalable."
       ],
-      "imageSrc": "history/talentumIcon.png",
+      "imageSrc": "history/freelancerIcon.png",
       "rol": "Desarrollador Frontend",
       "fechaInicio": "Ene. 2022",
       "fechaFin": "Jun. 2022",
       "experiencias": [
-        "Mejoré mi código para que fuera robusto y escalable.",
-        "Aprendí hooks de React para crear interfaces interactivas.",
-        "Utilicé Angular para desarrollar aplicaciones web escalables.",
-        "Desarrollé entornos interactivos pedagógicos en Unity."
+        "Diseñé y desarrollé webs informativas. Utilicé Figma para el diseño y junto con React creé el producto final. Utilicé las 'props' y el 'context' de React para transferir información por los diferentes módulos, logrando que las aplicaciones sean fácilmente escalables."
       ]
     }
 ]

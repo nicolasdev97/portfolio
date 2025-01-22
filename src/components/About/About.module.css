@@ -28,7 +28,6 @@
 .aboutItems {
     color: var(--color-text);
     display: grid;
-    grid-auto-rows: minmax(151px, auto);
     flex-direction: column;
     gap: 50px;
     margin-top: 25px;

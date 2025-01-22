@@ -1,9 +1,7 @@
 Pendiente:
 1-Organizar el codigo y animacion de experience.
-2-Texto de hero.
-3-Texto de about.
-4-Texto de experience.
-5-Pendiente el projects.
+2-Pendiente la hv.
+3-Pendiente el projects.
 Basarme en:
 https://brittanychiang.com
 Tamaños:
