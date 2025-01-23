@@ -1,7 +1,5 @@
 Pendiente:
-1-Organizar el codigo y animacion de experience.
-2-Pendiente la hv.
-3-Pendiente el projects.
+1-Pendiente los projects.
 Basarme en:
 https://brittanychiang.com
 Tamaños:

@@ -18,13 +18,13 @@
     margin-top: 37px;
 }
 
-.history {
+.experiences {
     position: relative;
     margin: 0 auto;
     list-style: none;
 }
 
-.history::after {
+.experiences::after {
     content: '';
     position: absolute;
     width: 6px;
@@ -46,7 +46,7 @@
     }
 }
 
-.historyItem {
+.experiencesItem {
     padding: 10px 50px;
     position: relative;
     width: 50%;
@@ -55,15 +55,15 @@
     animation: movedown 1s linear forwards;
 }
 
-.historyItem:nth-child(1) {
+.experiencesItem:nth-child(1) {
     animation-delay: 0s;
 }
 
-.historyItem:nth-child(2) {
+.experiencesItem:nth-child(2) {
     animation-delay: 2s;
 }
 
-.historyItem:nth-child(3) {
+.experiencesItem:nth-child(3) {
     animation-delay: 4s;
 }
 
@@ -78,15 +78,15 @@
     }
 }
 
-.historyItemLeft {
+.experiencesItemLeft {
     left: 0;
 }
 
-.historyItemRight {
+.experiencesItemRight {
     left: 50%;
 }
 
-.historyItem img {
+.experiencesItem img {
     position: absolute;
     width: 40px;
     border-radius: 5px;
@@ -95,11 +95,11 @@
     z-index: 10;
 }
 
-.historyItemRight img {
+.experiencesItemRight img {
     left: -20px;
 }
 
-.historyItemDetails {
+.experiencesItemDetails {
     padding: 20px 30px;
     background: #fff;
     position: relative;
@@ -108,7 +108,7 @@
     text-align: justify;
 }
 
-.historyItemDetails ul {
+.experiencesItemDetails ul {
     list-style: none;
 }
 
@@ -137,21 +137,21 @@
 }
 
 @media screen and (max-width: 830px) {
-    .history::after {
+    .experiences::after {
         left: 31px;
     }
 
-    .historyItem {
+    .experiencesItem {
         width: 100%;
         padding-left: 80px;
         padding-right: 25px;
     }
 
-    .historyItemRight {
+    .experiencesItemRight {
         left: 0;
     }
 
-    .historyItem img, .historyItemRigth img {
+    .experiencesItem img, .experiencesItemRigth img {
         left: 10px;
     }
 

@@ -6,7 +6,8 @@ import { TranslationContext } from '../TranslationContext/TranslationContext.jsx
 
 export const TranslateButton = () => {
 
-    const { t, toggleLanguage } = useContext(TranslationContext);
+  //Traduccion  
+  const { t, toggleLanguage } = useContext(TranslationContext);
 
   return (
     <button

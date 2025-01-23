@@ -5,11 +5,13 @@ export const TranslationContext = createContext();
 
 const TranslationProvider = ({ children }) => {
 
+  //Traduccion
   const [t, i18n] = useTranslation('global');
 
+  //Define el lenguaje
   const toggleLanguage = () => {
-    const newLanguage = i18n.language === "es" ? "en" : "es"; // Define newLanguage
-    i18n.changeLanguage(newLanguage); // Cambia el idioma usando newLanguage
+    const newLanguage = i18n.language === "es" ? "en" : "es";
+    i18n.changeLanguage(newLanguage);
   };
 
   return (

@@ -1,5 +1,5 @@
 :root {
-    /* Colors */
+    /* Colores */
     --color-text: #fff;
     --color-button: #40a0e4;
     --color-primary: #1b79a5;
@@ -7,6 +7,6 @@
     --color-dark: #0b2447;
     --color-bg: #091d3a;
 
-    /* Fonts */
+    /* Fuentes */
     --font-robot: "Roboto";
 }

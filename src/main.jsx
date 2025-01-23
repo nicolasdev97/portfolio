@@ -11,9 +11,10 @@ import global_en from './translations/en/global.json';
 import '@fontsource/outfit'
 import '@fontsource/roboto'
 
+//Configura las traducciones de ingles y español
 i18next.init({
   interpolation: {escapeValue: false},
-  lng: "es",
+  lng: "en",
   resources: {
     es: {
       global: global_es,
