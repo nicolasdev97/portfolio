@@ -12,17 +12,36 @@ export const About = () => {
     
     //Obtiene la altura maxima de las secciones de about
     useEffect (() => {
-        //Obtiene todos los aboutItem
-        const aboutItems = document.querySelectorAll(`.${styles.aboutItem}`);
+        const updateHeights = () => {
+            //Obtiene todos los aboutItem
+            const aboutItems = document.querySelectorAll(`.${styles.aboutItem}`);
 
-        //Encuentra la altura maxima de los aboutItem
-        const heights = Array.from(aboutItems).map(element => element.offsetHeight);
-        const maxHeight = Math.max(...heights);
+            //Restablece la altura de cada aboutItem
+            aboutItems.forEach(element => {
+                element.style.height = 'auto';
+            });
+    
+            //Encuentra la altura máxima de los aboutItem
+            const heights = Array.from(aboutItems).map(element => element.offsetHeight);
+            const maxHeight = Math.max(...heights);
+    
+            //Establece la altura máxima en cada aboutItem
+            aboutItems.forEach(element => {
+                element.style.height = `${maxHeight}px`;
+                console.log(element.style.height);
+            });
+        };
 
-        //Establece la altura maxima en cada aboutItem
-        aboutItems.forEach(element => {
-            element.style.height = `${maxHeight}px`;
-        });
+        //Ejecuta la funcion
+        updateHeights();
+
+        //Añade al eventListener el metodo updateHeights cuando se redimensione la pagina
+        window.addEventListener('resize', updateHeights);
+
+        //Limpia el eventListener cuando el componente se desmonta
+        return () => {
+            window.removeEventListener('resize', updateHeights);
+        };
     }, []); //Solo se ejecuta una vez
     
     return (

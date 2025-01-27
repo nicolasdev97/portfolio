@@ -67,7 +67,7 @@ export const Navbar = () => {
     //Añade al eventListener el metodo handleScroll cuando se scrollee en la pagina
     window.addEventListener('scroll', handleScroll);
 
-    //Limpia el eventListener despues de ejecutar el useEffect
+    //Limpia el eventListener cuando el componente se desmonta
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
