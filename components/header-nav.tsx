@@ -19,13 +19,46 @@ const NAV_ITEMS = [
 
 export function HeaderNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("about");
+
+  const scrollToSection = (id: string, href: string) => {
+    if (id === "about") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 70;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    if (window.location.hash !== href) {
+      window.history.pushState(null, "", href);
+    }
+    setActiveSection(id);
+    setMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+    href: string
+  ) => {
+    e.preventDefault();
+    scrollToSection(id, href);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      // By default at the top of the page, no section is highlighted
-      if (window.scrollY < 100) {
-        setActiveSection(null);
+      // At the top of the page, "about" is actively selected
+      if (window.scrollY < 120) {
+        setActiveSection("about");
         return;
       }
 
@@ -41,7 +74,7 @@ export function HeaderNav() {
 
       // Viewport target line for active section detection (just below fixed header)
       const viewportTarget = 160;
-      let current: string | null = null;
+      let current = "about";
 
       for (const item of NAV_ITEMS) {
         const el = document.getElementById(item.id);
@@ -71,8 +104,9 @@ export function HeaderNav() {
       className="mx-auto max-w-7xl flex items-center justify-between h-16 uppercase"
     >
       <Link
-        href="#"
-        className="text-lg md:text-xl font-bold font-mono tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-1"
+        href="#about"
+        onClick={(e) => handleNavClick(e, "about", "#about")}
+        className="text-lg md:text-xl font-bold font-mono tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-1 cursor-pointer"
       >
         <span>Nicolás</span>
         <span className="text-primary">_</span>
@@ -87,8 +121,9 @@ export function HeaderNav() {
             <Link
               key={item.id}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.id, item.href)}
               className={cn(
-                "transition-colors hover:text-foreground",
+                "transition-colors hover:text-foreground cursor-pointer",
                 isActive
                   ? "text-foreground font-semibold underline underline-offset-4"
                   : "text-muted-foreground"
@@ -143,9 +178,9 @@ export function HeaderNav() {
               <Link
                 key={item.id}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.id, item.href)}
                 className={cn(
-                  "transition-colors py-2 border-b border-border/40",
+                  "transition-colors py-2 border-b border-border/40 cursor-pointer",
                   isActive
                     ? "text-foreground font-bold"
                     : "text-muted-foreground hover:text-foreground"
