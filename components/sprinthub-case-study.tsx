@@ -61,6 +61,7 @@ export function SprintHubCaseStudy() {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
+            title="Launch SprintHub Live Demo in a new tab"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-primary/90 transition-colors shadow-lg"
           >
             Live Demo <ExternalLink className="size-3.5" />
@@ -69,6 +70,7 @@ export function SprintHubCaseStudy() {
             href={project.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
+            title="View SprintHub Monorepo & Architecture Docs (SAD / ADRs) on GitHub"
             className="inline-flex items-center gap-2 px-5 py-2.5 border border-border bg-background text-foreground font-mono text-xs uppercase tracking-wider font-medium rounded-none hover:border-primary hover:text-primary transition-colors"
           >
             GitHub & Docs (SAD / ADRs) <Github className="size-3.5" />
@@ -115,6 +117,7 @@ export function SprintHubCaseStudy() {
               <button
                 type="button"
                 onClick={() => setActiveTab("architecture")}
+                title="Explore Monorepo & Modular Monolith architecture"
                 className={`flex items-center justify-center gap-2 py-3 px-2 text-xs font-mono transition-colors border-r border-border cursor-pointer ${
                   activeTab === "architecture"
                     ? "bg-background text-primary border-b-2 border-b-primary font-bold"
@@ -128,6 +131,7 @@ export function SprintHubCaseStudy() {
               <button
                 type="button"
                 onClick={() => setActiveTab("security")}
+                title="Explore Contextual RBAC & defensive security policies"
                 className={`flex items-center justify-center gap-2 py-3 px-2 text-xs font-mono transition-colors border-r border-border cursor-pointer ${
                   activeTab === "security"
                     ? "bg-background text-primary border-b-2 border-b-primary font-bold"
@@ -141,6 +145,7 @@ export function SprintHubCaseStudy() {
               <button
                 type="button"
                 onClick={() => setActiveTab("realtime")}
+                title="Explore Server-Sent Events, OpenAPI 3.0 & test pyramid"
                 className={`flex items-center justify-center gap-2 py-3 px-2 text-xs font-mono transition-colors border-r border-border cursor-pointer ${
                   activeTab === "realtime"
                     ? "bg-background text-primary border-b-2 border-b-primary font-bold"
@@ -154,6 +159,7 @@ export function SprintHubCaseStudy() {
               <button
                 type="button"
                 onClick={() => setActiveTab("ai")}
+                title="Explore Applied AI roadmap with pgvector & Vercel AI SDK"
                 className={`flex items-center justify-center gap-2 py-3 px-2 text-xs font-mono transition-colors cursor-pointer ${
                   activeTab === "ai"
                     ? "bg-background text-primary border-b-2 border-b-primary font-bold"
@@ -295,7 +301,8 @@ export function SprintHubCaseStudy() {
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
                     onClick={() => handleCopy(project.demoCredentials?.admin.email || "", "admin-email")}
-                    title="Copy Email"
+                    title="Copy admin email (admin@sprinthub.dev) to clipboard"
+                    aria-label="Copy admin email"
                   >
                     {copiedKey === "admin-email" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
                   </Button>
@@ -310,7 +317,8 @@ export function SprintHubCaseStudy() {
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
                     onClick={() => handleCopy(project.demoCredentials?.admin.password || "", "admin-pass")}
-                    title="Copy Password"
+                    title="Copy admin password (Password123!) to clipboard"
+                    aria-label="Copy admin password"
                   >
                     {copiedKey === "admin-pass" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
                   </Button>
@@ -333,7 +341,8 @@ export function SprintHubCaseStudy() {
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
                     onClick={() => handleCopy(project.demoCredentials?.dev.email || "", "dev-email")}
-                    title="Copy Email"
+                    title="Copy dev email (dev@sprinthub.dev) to clipboard"
+                    aria-label="Copy dev email"
                   >
                     {copiedKey === "dev-email" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
                   </Button>
@@ -348,7 +357,8 @@ export function SprintHubCaseStudy() {
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
                     onClick={() => handleCopy(project.demoCredentials?.dev.password || "", "dev-pass")}
-                    title="Copy Password"
+                    title="Copy dev password (Password123!) to clipboard"
+                    aria-label="Copy dev password"
                   >
                     {copiedKey === "dev-pass" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
                   </Button>
@@ -360,6 +370,7 @@ export function SprintHubCaseStudy() {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              title="Launch SprintHub in production (opens in new tab)"
               className="mt-4 w-full inline-flex items-center justify-center gap-2 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-wider font-semibold hover:bg-primary/90 transition-colors"
             >
               Launch Live App <ExternalLink className="size-3.5" />

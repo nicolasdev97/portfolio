@@ -104,6 +104,7 @@ export function ContactSection() {
                 <span className="text-[10px] text-muted-foreground block">PRIMARY EMAIL</span>
                 <a
                   href={`mailto:${profile.email}`}
+                  title={`Send email to ${profile.email}`}
                   className="text-foreground hover:underline font-semibold"
                 >
                   {profile.email}
@@ -114,6 +115,7 @@ export function ContactSection() {
                 variant="outline"
                 size="sm"
                 onClick={handleCopyEmail}
+                title={`Copy ${profile.email} to clipboard`}
                 className="gap-1.5 text-xs font-mono rounded-none"
               >
                 {copiedEmail ? (
@@ -145,6 +147,7 @@ export function ContactSection() {
                   <span className="text-[10px] text-muted-foreground block">DIRECT PHONE / WHATSAPP</span>
                   <a
                     href={`tel:${profile.phone.replace(/[^0-9+]/g, "")}`}
+                    title={`Call or message ${profile.phone}`}
                     className="text-foreground hover:underline font-semibold"
                   >
                     {profile.phone}
@@ -153,28 +156,30 @@ export function ContactSection() {
               </div>
             )}
 
-            {/* Social Links */}
+            {/* Social Links: GitHub 1st, LinkedIn 2nd (Consistent with Hero & Footer) */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <a
-                href={profile.socials.linkedin}
+                href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="GitHub Profile (@nicolasdev97) — Open in new tab"
                 className="p-3 border border-border bg-background hover:border-foreground/50 transition-colors flex items-center justify-between"
               >
                 <span className="flex items-center gap-2">
-                  <Linkedin className="size-4 text-foreground" /> LinkedIn
+                  <Github className="size-4 text-foreground" /> GitHub
                 </span>
                 <ExternalLink className="size-3 text-muted-foreground" />
               </a>
 
               <a
-                href={profile.socials.github}
+                href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn Profile (Nicolás Palacio) — Open in new tab"
                 className="p-3 border border-border bg-background hover:border-foreground/50 transition-colors flex items-center justify-between"
               >
                 <span className="flex items-center gap-2">
-                  <Github className="size-4 text-foreground" /> GitHub
+                  <Linkedin className="size-4 text-foreground" /> LinkedIn
                 </span>
                 <ExternalLink className="size-3 text-muted-foreground" />
               </a>
@@ -184,6 +189,7 @@ export function ContactSection() {
             <a
               href={profile.cvPath}
               download={profile.cvFilename}
+              title="Download complete CV in PDF format"
               className="mt-4 block p-4 border border-border bg-secondary/30 hover:bg-secondary/60 transition-colors"
             >
               <div className="flex items-center justify-between">
@@ -258,6 +264,7 @@ export function ContactSection() {
             <Button
               type="submit"
               size="lg"
+              title="Dispatch email transmission to Nicolás Palacio"
               className="w-full rounded-none font-mono text-xs uppercase tracking-wider font-semibold gap-2 py-3 cursor-pointer"
             >
               <Send className="size-3.5" /> Send Transmission
@@ -278,6 +285,7 @@ export function ContactSection() {
                     href={gmailUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title="Open email draft directly in Gmail Web (new tab)"
                     className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     Open in Gmail Web <ExternalLink className="size-3" />
@@ -285,6 +293,7 @@ export function ContactSection() {
 
                   <a
                     href={mailtoUrl}
+                    title="Open email draft in your system's default email client"
                     className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     Default Email App <Mail className="size-3" />
@@ -293,6 +302,7 @@ export function ContactSection() {
                   <button
                     type="button"
                     onClick={handleCopyDraft}
+                    title="Copy complete email draft to clipboard"
                     className={cn(
                       "px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer",
                       copiedDraft && "border-emerald-500 text-emerald-400"
@@ -317,6 +327,7 @@ export function ContactSection() {
                   type="button"
                   onClick={handleCopyDraft}
                   disabled={!formData.message}
+                  title="Copy message draft to clipboard"
                   className="hover:text-foreground underline underline-offset-2 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {copiedDraft ? "✓ Copied to clipboard" : "Copy draft to clipboard"}

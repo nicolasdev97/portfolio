@@ -25,6 +25,7 @@ export function Footer() {
             href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
+            title="GitHub Profile (@nicolasdev97) — Open in new tab"
             className="hover:text-primary transition-colors flex items-center gap-1.5"
           >
             <Github className="size-3.5" /> GITHUB
@@ -33,12 +34,14 @@ export function Footer() {
             href={profile.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            title="LinkedIn Profile (Nicolás Palacio) — Open in new tab"
             className="hover:text-primary transition-colors flex items-center gap-1.5"
           >
             <Linkedin className="size-3.5" /> LINKEDIN
           </a>
           <a
             href={profile.socials.email}
+            title={`Send direct email to ${profile.email}`}
             className="hover:text-primary transition-colors flex items-center gap-1.5"
           >
             <Mail className="size-3.5" /> EMAIL
@@ -46,6 +49,7 @@ export function Footer() {
           <a
             href={profile.cvPath}
             download={profile.cvFilename}
+            title="Download Nicolás Palacio's CV (PDF)"
             className="hover:text-primary transition-colors"
           >
             CV_PDF

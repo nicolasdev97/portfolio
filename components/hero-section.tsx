@@ -83,6 +83,7 @@ export function HeroSection() {
           <div className="flex flex-wrap gap-4 pt-4 items-center">
             <Link
               href="#featured-project"
+              title="View SprintHub case study & architecture"
               className={cn("uppercase font-mono text-xs tracking-wider rounded-none", buttonVariants({ size: "lg" }))}
             >
               Explore SprintHub <ArrowRight className="size-4 ml-1" />
@@ -90,6 +91,7 @@ export function HeroSection() {
 
             <Link
               href="#contact"
+              title="Jump to direct contact channels"
               className={cn(
                 "uppercase font-mono text-xs tracking-wider rounded-none",
                 buttonVariants({ variant: "outline", size: "lg" })
@@ -103,6 +105,7 @@ export function HeroSection() {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="GitHub Profile (@nicolasdev97) — Open in new tab"
                 aria-label="GitHub Profile"
                 className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
               >
@@ -112,6 +115,7 @@ export function HeroSection() {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn Profile (Nicolás Palacio) — Open in new tab"
                 aria-label="LinkedIn Profile"
                 className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
               >
@@ -119,6 +123,7 @@ export function HeroSection() {
               </a>
               <a
                 href={profile.socials.email}
+                title={`Send direct email to ${profile.email}`}
                 aria-label="Send direct email"
                 className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
               >
@@ -209,6 +214,7 @@ export function HeroSection() {
             {/* Bridge CTA to SprintHub */}
             <Link
               href="#featured-project"
+              title="Explore SprintHub case study & architecture"
               className="group flex items-center justify-between p-3 border border-border bg-secondary/30 hover:border-foreground/40 hover:bg-secondary/60 transition-colors text-xs text-foreground"
             >
               <div className="flex items-center gap-2">

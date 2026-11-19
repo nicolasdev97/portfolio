@@ -106,6 +106,7 @@ export function HeaderNav() {
       <Link
         href="#about"
         onClick={(e) => handleNavClick(e, "about", "#about")}
+        title="Nicolás Palacio — Scroll to top"
         className="text-lg md:text-xl font-bold font-mono tracking-tighter hover:opacity-80 transition-opacity flex items-center gap-1 cursor-pointer"
       >
         <span>Nicolás</span>
@@ -122,6 +123,7 @@ export function HeaderNav() {
               key={item.id}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.id, item.href)}
+              title={`Jump to ${item.label} section`}
               className={cn(
                 "transition-colors hover:text-foreground cursor-pointer",
                 isActive
@@ -144,11 +146,13 @@ export function HeaderNav() {
         <a
           href={PORTFOLIO_DATA.profile.cvPath}
           download={PORTFOLIO_DATA.profile.cvFilename}
+          title="Download Nicolás Palacio's CV (PDF)"
           className="inline-flex"
         >
           <Button
             variant="outline"
             size="sm"
+            title="Download Nicolás Palacio's CV (PDF)"
             className="font-mono text-xs border-border/80 text-foreground hover:bg-secondary hover:text-foreground hover:border-primary gap-1.5 cursor-pointer rounded-none"
           >
             <FileDown className="size-3.5 text-primary" />
@@ -163,6 +167,7 @@ export function HeaderNav() {
           size="icon"
           className="md:hidden text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          title="Toggle navigation menu"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
