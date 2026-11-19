@@ -1,15 +1,68 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/zippystarter/container";
 import { FileDown, Menu, X } from "lucide-react";
-import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
+
+const NAV_ITEMS = [
+  { label: "About", href: "#about", id: "about" },
+  { label: "SprintHub", href: "#featured-project", id: "featured-project" },
+  { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Tech Stack", href: "#skills", id: "skills" },
+  { label: "Contact", href: "#contact", id: "contact" },
+];
 
 export function HeaderNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // By default at the top of the page, no section is highlighted
+      if (window.scrollY < 100) {
+        setActiveSection(null);
+        return;
+      }
+
+      // Check if user has reached bottom of page
+      const isAtBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60;
+
+      if (isAtBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Viewport target line for active section detection (just below fixed header)
+      const viewportTarget = 160;
+      let current: string | null = null;
+
+      for (const item of NAV_ITEMS) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // Active when the section covers the viewport target line according to its size
+          if (rect.top <= viewportTarget && rect.bottom > viewportTarget) {
+            current = item.id;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Container
@@ -27,37 +80,24 @@ export function HeaderNav() {
       </Link>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-7 text-xs font-mono tracking-wider text-muted-foreground">
-        <Link
-          href="#about"
-          className="hover:text-primary transition-colors hover:underline underline-offset-4"
-        >
-          About
-        </Link>
-        <Link
-          href="#featured-project"
-          className="hover:text-primary transition-colors hover:underline underline-offset-4 text-foreground font-semibold"
-        >
-          SprintHub
-        </Link>
-        <Link
-          href="#experience"
-          className="hover:text-primary transition-colors hover:underline underline-offset-4"
-        >
-          Experience
-        </Link>
-        <Link
-          href="#skills"
-          className="hover:text-primary transition-colors hover:underline underline-offset-4"
-        >
-          Tech Stack
-        </Link>
-        <Link
-          href="#contact"
-          className="hover:text-primary transition-colors hover:underline underline-offset-4"
-        >
-          Contact
-        </Link>
+      <nav className="hidden md:flex items-center gap-7 text-xs font-mono tracking-wider">
+        {NAV_ITEMS.map((item) => {
+          const isActive = activeSection === item.id;
+          return (
+            <Link
+              key={item.id}
+              href={item.href}
+              className={cn(
+                "transition-colors hover:text-foreground",
+                isActive
+                  ? "text-foreground font-semibold underline underline-offset-4"
+                  : "text-muted-foreground"
+              )}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Actions */}
@@ -97,41 +137,24 @@ export function HeaderNav() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-lg border-b border-border py-4 px-6 flex flex-col gap-4 text-sm font-mono">
-          <Link
-            href="#about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-primary transition-colors py-2 border-b border-border/40"
-          >
-            About
-          </Link>
-          <Link
-            href="#featured-project"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-primary transition-colors py-2 border-b border-border/40 font-bold text-foreground"
-          >
-            SprintHub (Featured SaaS)
-          </Link>
-          <Link
-            href="#experience"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-primary transition-colors py-2 border-b border-border/40"
-          >
-            Experience & Education
-          </Link>
-          <Link
-            href="#skills"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-primary transition-colors py-2 border-b border-border/40"
-          >
-            Tech Stack Matrix
-          </Link>
-          <Link
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-primary transition-colors py-2"
-          >
-            Contact
-          </Link>
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={cn(
+                  "transition-colors py-2 border-b border-border/40",
+                  isActive
+                    ? "text-foreground font-bold"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </Container>
