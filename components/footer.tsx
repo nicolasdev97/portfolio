@@ -1,6 +1,6 @@
 import { Container } from "@/components/zippystarter/container";
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, FileDown, MapPin } from "lucide-react";
 
 export function Footer() {
   const { profile } = PORTFOLIO_DATA;
@@ -40,21 +40,14 @@ export function Footer() {
             <Linkedin className="size-3.5" /> LINKEDIN
           </a>
           <a
-            href={profile.socials.email}
-            title="Jump to Contact Section & Direct Transmission"
-            className="hover:text-primary transition-colors flex items-center gap-1.5"
-          >
-            <Mail className="size-3.5" /> EMAIL
-          </a>
-          <a
             href={profile.cvPath}
             download={profile.cvFilename}
             target="_blank"
             rel="noopener noreferrer"
             title="Download Nicolás Palacio's CV (PDF)"
-            className="hover:text-primary transition-colors"
+            className="hover:text-primary transition-colors flex items-center gap-1.5"
           >
-            CV_PDF
+            <FileDown className="size-3.5" /> CV_PDF
           </a>
         </div>
       </div>
