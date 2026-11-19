@@ -33,6 +33,7 @@ export function ContactSection() {
   const [copiedDraft, setCopiedDraft] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [submittedDraft, setSubmittedDraft] = useState<EmailDraft | null>(null);
 
   const handleCopyEmail = () => {
@@ -66,6 +67,30 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const newErrors: { name?: string; email?: string; message?: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name or company.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Please provide an email address.";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Please write a transmission message.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     const draft = buildEmailDraft();
     setSubmittedDraft(draft);
 
@@ -209,50 +234,86 @@ export function ContactSection() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 font-mono text-xs">
+          <form onSubmit={handleSubmit} noValidate className="space-y-5 font-mono text-xs">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-muted-foreground block text-[11px]">
-                  YOUR NAME // RECRUITER OR TEAM
-                </label>
+                <div className="flex justify-between items-center">
+                  <label htmlFor="name" className="text-muted-foreground block text-[11px]">
+                    YOUR NAME // RECRUITER OR TEAM
+                  </label>
+                  {errors.name && (
+                    <span className="text-[10px] text-destructive font-mono">
+                      {errors.name}
+                    </span>
+                  )}
+                </div>
                 <Input
                   id="name"
-                  required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errors.name) setErrors({ ...errors, name: undefined });
+                  }}
                   placeholder="e.g. Sarah Connor / Tech Lead"
-                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground"
+                  className={cn(
+                    "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground",
+                    errors.name && "border-destructive focus:border-destructive"
+                  )}
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="email" className="text-muted-foreground block text-[11px]">
-                  REPLY EMAIL ADDRESS
-                </label>
+                <div className="flex justify-between items-center">
+                  <label htmlFor="email" className="text-muted-foreground block text-[11px]">
+                    REPLY EMAIL ADDRESS
+                  </label>
+                  {errors.email && (
+                    <span className="text-[10px] text-destructive font-mono">
+                      {errors.email}
+                    </span>
+                  )}
+                </div>
                 <Input
                   id="email"
                   type="email"
-                  required
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, email: e.target.value });
+                    if (errors.email) setErrors({ ...errors, email: undefined });
+                  }}
                   placeholder="sconnor@enterprise.com"
-                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground"
+                  className={cn(
+                    "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground",
+                    errors.email && "border-destructive focus:border-destructive"
+                  )}
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-muted-foreground block text-[11px]">
-                TRANSMISSION CONTENT // ROLE DETAILS, SPRINT, OR PROPOSAL
-              </label>
+              <div className="flex justify-between items-center">
+                <label htmlFor="message" className="text-muted-foreground block text-[11px]">
+                  TRANSMISSION CONTENT // ROLE DETAILS, SPRINT, OR PROPOSAL
+                </label>
+                {errors.message && (
+                  <span className="text-[10px] text-destructive font-mono">
+                    {errors.message}
+                  </span>
+                )}
+              </div>
               <Textarea
                 id="message"
-                required
                 rows={5}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) => {
+                  setFormData({ ...formData, message: e.target.value });
+                  if (errors.message) setErrors({ ...errors, message: undefined });
+                }}
                 placeholder="We are looking for a Full Stack Software Engineer to build scalable microservices and integrate LLM agents..."
-                className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground min-h-[140px]"
+                className={cn(
+                  "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground min-h-[140px]",
+                  errors.message && "border-destructive focus:border-destructive"
+                )}
               />
             </div>
 
