@@ -6,6 +6,7 @@ import { Container } from "@/components/zippystarter/container";
 import { FileDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function HeaderNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,36 +32,40 @@ export function HeaderNav() {
           href="#about"
           className="hover:text-primary transition-colors hover:underline underline-offset-4"
         >
-          &#47;&#47; About
+          About
         </Link>
         <Link
           href="#featured-project"
           className="hover:text-primary transition-colors hover:underline underline-offset-4 text-foreground font-semibold"
         >
-          &#47;&#47; SprintHub
+          SprintHub
         </Link>
         <Link
           href="#experience"
           className="hover:text-primary transition-colors hover:underline underline-offset-4"
         >
-          &#47;&#47; Experience
+          Experience
         </Link>
         <Link
           href="#skills"
           className="hover:text-primary transition-colors hover:underline underline-offset-4"
         >
-          &#47;&#47; Tech Stack
+          Tech Stack
         </Link>
         <Link
           href="#contact"
           className="hover:text-primary transition-colors hover:underline underline-offset-4"
         >
-          &#47;&#47; Contact
+          Contact
         </Link>
       </nav>
 
       {/* Actions */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
+        {/* Dark / Light Mode Switcher */}
+        <ThemeToggle />
+
+        {/* CV Download Button */}
         <a
           href={PORTFOLIO_DATA.profile.cvPath}
           download={PORTFOLIO_DATA.profile.cvFilename}
@@ -69,7 +74,7 @@ export function HeaderNav() {
           <Button
             variant="outline"
             size="sm"
-            className="font-mono text-xs border-primary/50 text-foreground hover:bg-primary/10 hover:text-primary hover:border-primary gap-1.5 cursor-pointer"
+            className="font-mono text-xs border-border/80 text-foreground hover:bg-secondary hover:text-foreground hover:border-primary gap-1.5 cursor-pointer rounded-none"
           >
             <FileDown className="size-3.5 text-primary" />
             <span className="hidden sm:inline">RESUME / CV</span>
@@ -97,35 +102,35 @@ export function HeaderNav() {
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-primary transition-colors py-2 border-b border-border/40"
           >
-            &#47;&#47; About
+            About
           </Link>
           <Link
             href="#featured-project"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-primary transition-colors py-2 border-b border-border/40 font-bold text-foreground"
           >
-            &#47;&#47; SprintHub (Featured SaaS)
+            SprintHub (Featured SaaS)
           </Link>
           <Link
             href="#experience"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-primary transition-colors py-2 border-b border-border/40"
           >
-            &#47;&#47; Experience & Education
+            Experience & Education
           </Link>
           <Link
             href="#skills"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-primary transition-colors py-2 border-b border-border/40"
           >
-            &#47;&#47; Tech Stack Matrix
+            Tech Stack Matrix
           </Link>
           <Link
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-primary transition-colors py-2"
           >
-            &#47;&#47; Contact
+            Contact
           </Link>
         </div>
       )}
