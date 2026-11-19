@@ -25,7 +25,9 @@ import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
 export function SprintHubCaseStudy() {
   const project = PORTFOLIO_DATA.featuredProject;
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"architecture" | "security" | "realtime" | "ai">("architecture");
+  const [activeTab, setActiveTab] = useState<
+    "architecture" | "security" | "realtime" | "ai"
+  >("architecture");
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -177,21 +179,33 @@ export function SprintHubCaseStudy() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
                     <span className="text-foreground font-semibold flex items-center gap-1.5">
-                      <Terminal className="size-4 text-primary" /> Monorepo & Modular Monolith
+                      <Terminal className="size-4 text-primary" /> Monorepo &
+                      Modular Monolith
                     </span>
-                    <span className="text-primary font-mono text-[11px]">Controller → Service → Repository</span>
+                    <span className="text-primary font-mono text-[11px]">
+                      Controller → Service → Repository
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.pillars?.architecture}
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2 text-xs font-mono">
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Backend Core:</div>
-                      <div className="text-muted-foreground">Node.js 22 • Express 5 • Prisma 6 ORM • PostgreSQL 17</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Backend Core:
+                      </div>
+                      <div className="text-muted-foreground">
+                        Node.js 22 • Express 5 • Prisma 6 ORM • PostgreSQL 17
+                      </div>
                     </div>
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Frontend Client:</div>
-                      <div className="text-muted-foreground">Next.js 15 (App Router) • React 19 • Tailwind CSS • Docker</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Frontend Client:
+                      </div>
+                      <div className="text-muted-foreground">
+                        Next.js 15 (App Router) • React 19 • Tailwind CSS •
+                        Docker
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,21 +215,34 @@ export function SprintHubCaseStudy() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
                     <span className="text-foreground font-semibold flex items-center gap-1.5">
-                      <Lock className="size-4 text-primary" /> Multi-Tenant Defense & RBAC
+                      <Lock className="size-4 text-primary" /> Multi-Tenant
+                      Defense & RBAC
                     </span>
-                    <span className="text-primary font-mono text-[11px]">Zero-Trust Perimeter</span>
+                    <span className="text-primary font-mono text-[11px]">
+                      Zero-Trust Perimeter
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.pillars?.security}
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2 text-xs font-mono">
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Contextual RBAC:</div>
-                      <div className="text-muted-foreground">Tenant isolation (OWNER, ADMIN, MEMBER) with fine-grained authorization policies.</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Contextual RBAC:
+                      </div>
+                      <div className="text-muted-foreground">
+                        Tenant isolation (OWNER, ADMIN, MEMBER) with
+                        fine-grained authorization policies.
+                      </div>
                     </div>
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Schema Invariants:</div>
-                      <div className="text-muted-foreground">Strict Zod parsing across all ingress endpoints preventing IDOR & prototype pollution.</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Schema Invariants:
+                      </div>
+                      <div className="text-muted-foreground">
+                        Strict Zod parsing across all ingress endpoints
+                        preventing IDOR & prototype pollution.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -225,21 +252,34 @@ export function SprintHubCaseStudy() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
                     <span className="text-foreground font-semibold flex items-center gap-1.5">
-                      <FileCode className="size-4 text-primary" /> Real-Time Sync, OpenAPI & Test Pyramids
+                      <FileCode className="size-4 text-primary" /> Real-Time
+                      Sync, OpenAPI & Test Pyramids
                     </span>
-                    <span className="text-primary font-mono text-[11px]">Contract-First Engineering</span>
+                    <span className="text-primary font-mono text-[11px]">
+                      Contract-First Engineering
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.pillars?.realTimeAndQuality}
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 pt-2 text-xs font-mono">
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Real-Time Events:</div>
-                      <div className="text-muted-foreground">SSE stream at /api/events + BroadcastChannel for multi-tab optimistic updates.</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Real-Time Events:
+                      </div>
+                      <div className="text-muted-foreground">
+                        SSE stream at /api/events + BroadcastChannel for
+                        multi-tab optimistic updates.
+                      </div>
                     </div>
                     <div className="p-3 border border-border/60 bg-card/40">
-                      <div className="text-primary font-semibold mb-1">Documentation & Tests:</div>
-                      <div className="text-muted-foreground">OpenAPI 3.0 / Swagger UI at /api/docs + Vitest, Jest, Supertest & Playwright E2E.</div>
+                      <div className="text-primary font-semibold mb-1">
+                        Documentation & Tests:
+                      </div>
+                      <div className="text-muted-foreground">
+                        OpenAPI 3.0 / Swagger UI at /api/docs + Vitest, Jest,
+                        Supertest & Playwright E2E.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -249,19 +289,28 @@ export function SprintHubCaseStudy() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
                     <span className="text-foreground font-semibold flex items-center gap-1.5">
-                      <Bot className="size-4 text-primary" /> Applied AI Engineering Roadmap
+                      <Bot className="size-4 text-primary" /> Applied AI
+                      Engineering Roadmap
                     </span>
-                    <span className="text-primary font-mono text-[11px]">Probabilistic + Deterministic</span>
+                    <span className="text-primary font-mono text-[11px]">
+                      Probabilistic + Deterministic
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.pillars?.aiRoadmap}
                   </p>
                   <div className="p-4 border border-primary/30 bg-primary/5 text-xs font-mono space-y-2">
                     <div className="text-primary font-semibold flex items-center gap-2">
-                      <CheckCircle2 className="size-4" /> Next Milestone Architecture:
+                      <CheckCircle2 className="size-4" /> Next Milestone
+                      Architecture:
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
-                      Leveraging PostgreSQL 17 with the <code className="text-primary">pgvector</code> extension for embedding storage and semantic issue retrieval. LLM interactions are bound by deterministic Zod guardrails via the Vercel AI SDK to enforce schema compliance on agentic sprint planning.
+                      Leveraging PostgreSQL 17 with the{" "}
+                      <code className="text-primary">pgvector</code> extension
+                      for embedding storage and semantic issue retrieval. LLM
+                      interactions are bound by deterministic Zod guardrails via
+                      the Vercel AI SDK to enforce schema compliance on agentic
+                      sprint planning.
                     </p>
                   </div>
                 </div>
@@ -278,10 +327,13 @@ export function SprintHubCaseStudy() {
               <span className="font-mono text-xs uppercase tracking-wider font-semibold text-foreground flex items-center gap-2">
                 <Lock className="size-3.5 text-primary" /> INSTANT DEMO ACCESS
               </span>
-              <span className="text-[10px] font-mono text-primary font-bold">1-CLICK COPY</span>
+              <span className="text-[10px] font-mono text-primary font-bold">
+                1-CLICK COPY
+              </span>
             </div>
             <p className="text-xs text-muted-foreground mt-3 mb-4 leading-relaxed">
-              Explore both multi-tenant privilege levels directly without creating a throwaway account:
+              Explore both multi-tenant privilege levels directly without
+              creating a throwaway account:
             </p>
 
             <div className="space-y-3 font-mono text-xs">
@@ -289,7 +341,12 @@ export function SprintHubCaseStudy() {
               <div className="p-3 border border-border bg-background space-y-2">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-primary">
                   <span>{project.demoCredentials?.admin.role}</span>
-                  <Badge variant="outline" className="text-[10px] py-0 border-primary/40 text-primary">FULL PERMISSIONS</Badge>
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] py-0 border-primary/40 text-primary"
+                  >
+                    FULL PERMISSIONS
+                  </Badge>
                 </div>
                 <div className="flex items-center justify-between bg-secondary/40 px-2.5 py-1.5 border border-border/40">
                   <span className="text-muted-foreground select-all truncate mr-2">
@@ -300,11 +357,20 @@ export function SprintHubCaseStudy() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
-                    onClick={() => handleCopy(project.demoCredentials?.admin.email || "", "admin-email")}
+                    onClick={() =>
+                      handleCopy(
+                        project.demoCredentials?.admin.email || "",
+                        "admin-email",
+                      )
+                    }
                     title="Copy admin email (admin@sprinthub.dev) to clipboard"
                     aria-label="Copy admin email"
                   >
-                    {copiedKey === "admin-email" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
+                    {copiedKey === "admin-email" ? (
+                      <Check className="size-3 text-primary" />
+                    ) : (
+                      <Copy className="size-3" />
+                    )}
                   </Button>
                 </div>
                 <div className="flex items-center justify-between bg-secondary/40 px-2.5 py-1.5 border border-border/40">
@@ -316,11 +382,20 @@ export function SprintHubCaseStudy() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
-                    onClick={() => handleCopy(project.demoCredentials?.admin.password || "", "admin-pass")}
+                    onClick={() =>
+                      handleCopy(
+                        project.demoCredentials?.admin.password || "",
+                        "admin-pass",
+                      )
+                    }
                     title="Copy admin password (Password123!) to clipboard"
                     aria-label="Copy admin password"
                   >
-                    {copiedKey === "admin-pass" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
+                    {copiedKey === "admin-pass" ? (
+                      <Check className="size-3 text-primary" />
+                    ) : (
+                      <Copy className="size-3" />
+                    )}
                   </Button>
                 </div>
               </div>
@@ -329,7 +404,12 @@ export function SprintHubCaseStudy() {
               <div className="p-3 border border-border bg-background space-y-2">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-foreground">
                   <span>{project.demoCredentials?.dev.role}</span>
-                  <Badge variant="outline" className="text-[10px] py-0 text-muted-foreground">STANDARD ACCESS</Badge>
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] py-0 text-muted-foreground"
+                  >
+                    STANDARD ACCESS
+                  </Badge>
                 </div>
                 <div className="flex items-center justify-between bg-secondary/40 px-2.5 py-1.5 border border-border/40">
                   <span className="text-muted-foreground select-all truncate mr-2">
@@ -340,11 +420,20 @@ export function SprintHubCaseStudy() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
-                    onClick={() => handleCopy(project.demoCredentials?.dev.email || "", "dev-email")}
+                    onClick={() =>
+                      handleCopy(
+                        project.demoCredentials?.dev.email || "",
+                        "dev-email",
+                      )
+                    }
                     title="Copy dev email (dev@sprinthub.dev) to clipboard"
                     aria-label="Copy dev email"
                   >
-                    {copiedKey === "dev-email" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
+                    {copiedKey === "dev-email" ? (
+                      <Check className="size-3 text-primary" />
+                    ) : (
+                      <Copy className="size-3" />
+                    )}
                   </Button>
                 </div>
                 <div className="flex items-center justify-between bg-secondary/40 px-2.5 py-1.5 border border-border/40">
@@ -356,11 +445,20 @@ export function SprintHubCaseStudy() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 shrink-0 text-muted-foreground hover:text-primary"
-                    onClick={() => handleCopy(project.demoCredentials?.dev.password || "", "dev-pass")}
+                    onClick={() =>
+                      handleCopy(
+                        project.demoCredentials?.dev.password || "",
+                        "dev-pass",
+                      )
+                    }
                     title="Copy dev password (Password123!) to clipboard"
                     aria-label="Copy dev password"
                   >
-                    {copiedKey === "dev-pass" ? <Check className="size-3 text-primary" /> : <Copy className="size-3" />}
+                    {copiedKey === "dev-pass" ? (
+                      <Check className="size-3 text-primary" />
+                    ) : (
+                      <Copy className="size-3" />
+                    )}
                   </Button>
                 </div>
               </div>

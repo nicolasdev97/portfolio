@@ -34,7 +34,9 @@ export function ExperienceSection() {
           <div className="h-1 w-24 bg-primary mt-3"></div>
         </div>
         <p className="text-muted-foreground max-w-md text-sm font-mono leading-relaxed">
-          Proven history delivering resilient distributed backends, scalable SaaS platforms, and defensive testing pyramids with measurable business impact.
+          Proven history delivering resilient distributed backends, scalable
+          SaaS platforms, and defensive testing pyramids with measurable
+          business impact.
         </p>
       </div>
 
@@ -64,10 +66,12 @@ export function ExperienceSection() {
                     </div>
                     <div className="flex flex-col sm:items-end font-mono text-xs text-muted-foreground gap-1">
                       <span className="flex items-center gap-1">
-                        <Calendar className="size-3 text-primary" /> {job.period}
+                        <Calendar className="size-3 text-primary" />{" "}
+                        {job.period}
                       </span>
                       <span className="flex items-center gap-1">
-                        <MapPin className="size-3 text-primary" /> {job.location}
+                        <MapPin className="size-3 text-primary" />{" "}
+                        {job.location}
                       </span>
                     </div>
                   </div>
@@ -143,8 +147,12 @@ export function ExperienceSection() {
                   key={lIdx}
                   className="flex items-center justify-between py-2 border-b border-border/40 last:border-b-0"
                 >
-                  <span className="font-semibold text-foreground">{lang.name}</span>
-                  <span className="text-muted-foreground text-[11px]">{lang.level}</span>
+                  <span className="font-semibold text-foreground">
+                    {lang.name}
+                  </span>
+                  <span className="text-muted-foreground text-[11px]">
+                    {lang.level}
+                  </span>
                 </div>
               ))}
             </div>
@@ -156,7 +164,9 @@ export function ExperienceSection() {
               &#47;&#47; PRODUCTION GUARANTEE
             </div>
             <p className="text-muted-foreground text-[11px] leading-relaxed">
-              Every system built adheres to strict architectural boundaries, explicit runtime typing (Zod), isolated database transactions, and comprehensive test coverage.
+              Every system built adheres to strict architectural boundaries,
+              explicit runtime typing (Zod), isolated database transactions, and
+              comprehensive test coverage.
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ function useMounted() {
   return React.useSyncExternalStore(
     emptySubscribe,
     () => true,
-    () => false
+    () => false,
   );
 }
 

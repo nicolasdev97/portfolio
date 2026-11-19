@@ -61,7 +61,8 @@ export const PORTFOLIO_DATA = {
     name: "Nicolás Palacio",
     shortName: "Nicolás",
     role: "Full Stack Software Engineer",
-    title: "Full Stack Software Engineer | Building Modular SaaS & Applied AI Systems",
+    title:
+      "Full Stack Software Engineer | Building Modular SaaS & Applied AI Systems",
     techSummary: "Node.js • TypeScript • Next.js • PostgreSQL",
     location: "Cali, Colombia (Open to Remote Worldwide)",
     availability: "AVAILABLE FOR HIRE // REMOTE WORLDWIDE",
@@ -148,7 +149,17 @@ export const PORTFOLIO_DATA = {
         "Implemented JWT authentication and defensive automated test suites (Jest, Playwright), reducing functional regressions by 35%.",
         "Configured robust CI/CD pipelines with GitHub Actions and Docker deployments, shortening release cycles by 20%.",
       ],
-      skills: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Jest", "Playwright", "Docker", "GitHub Actions"],
+      skills: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Jest",
+        "Playwright",
+        "Docker",
+        "GitHub Actions",
+      ],
     },
     {
       role: "Full Stack Developer",
@@ -162,7 +173,17 @@ export const PORTFOLIO_DATA = {
         "Implemented rigorous automated testing suites (React Testing Library, Cypress, Playwright), achieving >70% code coverage and preventing production incidents.",
         "Optimized containerized deployments with Docker, slashing production bugs and downtime by 40%.",
       ],
-      skills: ["React", "TypeScript", "Next.js", "Node.js", "Express", "GraphQL", "PostgreSQL", "Cypress", "Docker"],
+      skills: [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Node.js",
+        "Express",
+        "GraphQL",
+        "PostgreSQL",
+        "Cypress",
+        "Docker",
+      ],
     },
   ] as ExperienceItem[],
 
@@ -195,7 +216,8 @@ export const PORTFOLIO_DATA = {
   skillsMatrix: [
     {
       category: "Backend & Architecture",
-      description: "Deterministic servers, modular monoliths & secure API design",
+      description:
+        "Deterministic servers, modular monoliths & secure API design",
       items: [
         "Node.js",
         "TypeScript",
@@ -245,7 +267,8 @@ export const PORTFOLIO_DATA = {
     },
     {
       category: "DevOps & Cloud Infrastructure",
-      description: "Containerization, automated pipelines & reproducible environments",
+      description:
+        "Containerization, automated pipelines & reproducible environments",
       items: [
         "Docker",
         "Docker Compose",

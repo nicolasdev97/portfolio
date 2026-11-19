@@ -13,7 +13,8 @@ export function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-left space-y-1">
           <div className="text-xs font-mono font-bold text-foreground tracking-wider">
-            © {new Date().getFullYear()} {profile.name.toUpperCase()}. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} {profile.name.toUpperCase()}. ALL
+            RIGHTS RESERVED.
           </div>
           <div className="text-[11px] font-mono text-muted-foreground flex items-center gap-1.5">
             <MapPin className="size-3 text-primary" /> {profile.location}

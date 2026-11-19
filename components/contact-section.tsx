@@ -32,8 +32,16 @@ export function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedDraft, setCopiedDraft] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
   const [submittedDraft, setSubmittedDraft] = useState<EmailDraft | null>(null);
 
   const handleCopyEmail = () => {
@@ -47,11 +55,11 @@ export function ContactSection() {
     const body = `Hi Nicolás,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent via portfolio contact form`;
 
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
-      profile.email
+      profile.email,
     )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
-      subject
+      subject,
     )}&body=${encodeURIComponent(body)}`;
 
     return { subject, body, gmailUrl, mailtoUrl };
@@ -128,7 +136,9 @@ export function ContactSection() {
               INITIATE_CONTACT<span className="text-primary">_</span>
             </h2>
             <p className="text-muted-foreground text-sm font-mono mt-3 leading-relaxed">
-              Open to technical interview processes, senior engineering roles, contract work, and nearshore/international remote teams. Let&apos;s build high-impact software.
+              Open to technical interview processes, senior engineering roles,
+              contract work, and nearshore/international remote teams.
+              Let&apos;s build high-impact software.
             </p>
           </div>
 
@@ -136,7 +146,9 @@ export function ContactSection() {
             {/* Direct Email Card */}
             <div className="p-4 border border-border bg-background flex items-center justify-between">
               <div className="space-y-1">
-                <span className="text-[10px] text-muted-foreground block">PRIMARY EMAIL</span>
+                <span className="text-[10px] text-muted-foreground block">
+                  PRIMARY EMAIL
+                </span>
                 <a
                   href={`mailto:${profile.email}`}
                   title={`Send email to ${profile.email}`}
@@ -169,8 +181,12 @@ export function ContactSection() {
             <div className="p-4 border border-border bg-background flex items-center gap-3">
               <MapPin className="size-4 text-foreground shrink-0" />
               <div>
-                <span className="text-[10px] text-muted-foreground block">LOCATION & WORKSPACE</span>
-                <span className="text-foreground font-semibold">{profile.location}</span>
+                <span className="text-[10px] text-muted-foreground block">
+                  LOCATION & WORKSPACE
+                </span>
+                <span className="text-foreground font-semibold">
+                  {profile.location}
+                </span>
               </div>
             </div>
 
@@ -217,7 +233,9 @@ export function ContactSection() {
                   <FileDown className="size-4" />
                   <span>DOWNLOAD COMPLETE CV (PDF)</span>
                 </div>
-                <span className="text-[10px] text-muted-foreground">PDF FORMAT</span>
+                <span className="text-[10px] text-muted-foreground">
+                  PDF FORMAT
+                </span>
               </div>
             </a>
           </div>
@@ -234,10 +252,17 @@ export function ContactSection() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-5 font-mono text-xs">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="space-y-5 font-mono text-xs"
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label htmlFor="name" className="text-muted-foreground block text-[11px]">
+                <label
+                  htmlFor="name"
+                  className="text-muted-foreground block text-[11px]"
+                >
                   YOUR NAME // RECRUITER OR TEAM
                 </label>
                 <Input
@@ -250,7 +275,8 @@ export function ContactSection() {
                   placeholder="e.g. Sarah Connor / Tech Lead"
                   className={cn(
                     "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground",
-                    errors.name && "border-destructive focus:border-destructive"
+                    errors.name &&
+                      "border-destructive focus:border-destructive",
                   )}
                 />
                 {errors.name && (
@@ -261,7 +287,10 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="email" className="text-muted-foreground block text-[11px]">
+                <label
+                  htmlFor="email"
+                  className="text-muted-foreground block text-[11px]"
+                >
                   REPLY EMAIL ADDRESS
                 </label>
                 <Input
@@ -270,12 +299,14 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
-                    if (errors.email) setErrors({ ...errors, email: undefined });
+                    if (errors.email)
+                      setErrors({ ...errors, email: undefined });
                   }}
                   placeholder="sconnor@enterprise.com"
                   className={cn(
                     "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground",
-                    errors.email && "border-destructive focus:border-destructive"
+                    errors.email &&
+                      "border-destructive focus:border-destructive",
                   )}
                 />
                 {errors.email && (
@@ -287,7 +318,10 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="message" className="text-muted-foreground block text-[11px]">
+              <label
+                htmlFor="message"
+                className="text-muted-foreground block text-[11px]"
+              >
                 TRANSMISSION CONTENT // ROLE DETAILS, SPRINT, OR PROPOSAL
               </label>
               <Textarea
@@ -296,12 +330,14 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={(e) => {
                   setFormData({ ...formData, message: e.target.value });
-                  if (errors.message) setErrors({ ...errors, message: undefined });
+                  if (errors.message)
+                    setErrors({ ...errors, message: undefined });
                 }}
                 placeholder="We are looking for a Full Stack Software Engineer to build scalable microservices and integrate LLM agents..."
                 className={cn(
                   "rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground min-h-[140px]",
-                  errors.message && "border-destructive focus:border-destructive"
+                  errors.message &&
+                    "border-destructive focus:border-destructive",
                 )}
               />
               {errors.message && (
@@ -341,7 +377,9 @@ export function ContactSection() {
                   </button>
                 </div>
                 <p className="text-[11px] text-muted-foreground leading-relaxed">
-                  We opened your email client with the draft prepared. If your browser didn&apos;t open it automatically, choose an option below:
+                  We opened your email client with the draft prepared. If your
+                  browser didn&apos;t open it automatically, choose an option
+                  below:
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <a
@@ -368,12 +406,13 @@ export function ContactSection() {
                     title="Copy complete email draft to clipboard"
                     className={cn(
                       "px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer",
-                      copiedDraft && "border-emerald-500 text-emerald-400"
+                      copiedDraft && "border-emerald-500 text-emerald-400",
                     )}
                   >
                     {copiedDraft ? (
                       <>
-                        Draft Copied! <Check className="size-3 text-emerald-400" />
+                        Draft Copied!{" "}
+                        <Check className="size-3 text-emerald-400" />
                       </>
                     ) : (
                       <>
@@ -393,7 +432,9 @@ export function ContactSection() {
                   title="Copy message draft to clipboard"
                   className="hover:text-foreground underline underline-offset-2 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {copiedDraft ? "✓ Copied to clipboard" : "Copy draft to clipboard"}
+                  {copiedDraft
+                    ? "✓ Copied to clipboard"
+                    : "Copy draft to clipboard"}
                 </button>
               </div>
             )}

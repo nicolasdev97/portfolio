@@ -57,9 +57,7 @@ export function HeroSection() {
               <br />
               STACK
               <br />
-              <span className="text-foreground">
-                ENGINEER_
-              </span>
+              <span className="text-foreground">ENGINEER_</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg font-mono text-foreground font-semibold tracking-tight">
               Building Modular SaaS & Applied AI Systems
@@ -72,10 +70,20 @@ export function HeroSection() {
           {/* Strategic About Narrative */}
           <div className="space-y-4 pt-2 border-l-2 border-border pl-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
             <p>
-              <strong className="text-foreground">3+ years</strong> of commercial experience engineering scalable web applications, robust REST/GraphQL APIs, relational database optimization (PostgreSQL), and defensive testing suites.
+              <strong className="text-foreground">3+ years</strong> of
+              commercial experience engineering scalable web applications,
+              robust REST/GraphQL APIs, relational database optimization
+              (PostgreSQL), and defensive testing suites.
             </p>
             <p>
-              <span className="text-foreground font-semibold">Actively transitioning into Applied AI Engineering:</span> AI agents and LLMs are probabilistic by nature; operating them safely in production demands deterministic backends, strict runtime schema validation (Zod), defensive security boundaries, and resilient retrieval pipelines (RAG with pgvector, Vercel AI SDK, LangChain).
+              <span className="text-foreground font-semibold">
+                Actively transitioning into Applied AI Engineering:
+              </span>{" "}
+              AI agents and LLMs are probabilistic by nature; operating them
+              safely in production demands deterministic backends, strict
+              runtime schema validation (Zod), defensive security boundaries,
+              and resilient retrieval pipelines (RAG with pgvector, Vercel AI
+              SDK, LangChain).
             </p>
           </div>
 
@@ -84,7 +92,10 @@ export function HeroSection() {
             <Link
               href="#featured-project"
               title="View SprintHub case study & architecture"
-              className={cn("uppercase font-mono text-xs tracking-wider rounded-none", buttonVariants({ size: "lg" }))}
+              className={cn(
+                "uppercase font-mono text-xs tracking-wider rounded-none",
+                buttonVariants({ size: "lg" }),
+              )}
             >
               Explore SprintHub <ArrowRight className="size-4 ml-1" />
             </Link>
@@ -94,7 +105,7 @@ export function HeroSection() {
               title="Jump to direct contact channels"
               className={cn(
                 "uppercase font-mono text-xs tracking-wider rounded-none",
-                buttonVariants({ variant: "outline", size: "lg" })
+                buttonVariants({ variant: "outline", size: "lg" }),
               )}
             >
               Get in Touch
@@ -107,7 +118,10 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 title="GitHub Profile (@nicolasdev97) — Open in new tab"
                 aria-label="GitHub Profile"
-                className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "text-muted-foreground hover:text-foreground",
+                )}
               >
                 <Github className="size-5" />
               </a>
@@ -117,7 +131,10 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 title="LinkedIn Profile (Nicolás Palacio) — Open in new tab"
                 aria-label="LinkedIn Profile"
-                className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "text-muted-foreground hover:text-foreground",
+                )}
               >
                 <Linkedin className="size-5" />
               </a>
@@ -125,7 +142,10 @@ export function HeroSection() {
                 href={profile.socials.email}
                 title="Jump to Contact Section & Direct Transmission"
                 aria-label="Jump to Contact Section"
-                className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "text-muted-foreground hover:text-foreground",
+                )}
               >
                 <Mail className="size-5" />
               </a>
@@ -142,9 +162,13 @@ export function HeroSection() {
                 <div className="size-2.5 rounded-full bg-border"></div>
                 <div className="size-2.5 rounded-full bg-border"></div>
                 <div className="size-2.5 rounded-full bg-border"></div>
-                <span className="text-muted-foreground ml-1">profile.spec.ts</span>
+                <span className="text-muted-foreground ml-1">
+                  profile.spec.ts
+                </span>
               </div>
-              <span className="text-muted-foreground text-[10px]">PRODUCTION READY</span>
+              <span className="text-muted-foreground text-[10px]">
+                PRODUCTION READY
+              </span>
             </div>
 
             {/* 3 High-Signal Core Pillars (No Fake Progress Bars) */}
@@ -159,7 +183,8 @@ export function HeroSection() {
                     Modular Backend Architecture
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-relaxed">
-                    Controller-Service-Repository pattern in Node.js 22, Express 5, Prisma 6 and PostgreSQL 17.
+                    Controller-Service-Repository pattern in Node.js 22, Express
+                    5, Prisma 6 and PostgreSQL 17.
                   </div>
                 </div>
               </div>
@@ -174,7 +199,8 @@ export function HeroSection() {
                     Applied AI & RAG Pipelines
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-relaxed">
-                    Deterministic guardrails, pgvector semantic search, and schema-enforced LLM workflows.
+                    Deterministic guardrails, pgvector semantic search, and
+                    schema-enforced LLM workflows.
                   </div>
                 </div>
               </div>
@@ -189,7 +215,8 @@ export function HeroSection() {
                     Defensive Security & Testing
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-relaxed">
-                    Contextual RBAC, HttpOnly JWTs, strict Zod validation, and automated test pyramids.
+                    Contextual RBAC, HttpOnly JWTs, strict Zod validation, and
+                    automated test pyramids.
                   </div>
                 </div>
               </div>
@@ -198,16 +225,28 @@ export function HeroSection() {
             {/* 3 High-Value Signals / Fast Facts */}
             <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border text-center">
               <div className="p-2.5 border border-border bg-background/50">
-                <div className="text-lg font-bold font-display text-foreground">3+</div>
-                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">Years Exp</div>
+                <div className="text-lg font-bold font-display text-foreground">
+                  3+
+                </div>
+                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">
+                  Years Exp
+                </div>
               </div>
               <div className="p-2.5 border border-border bg-background/50">
-                <div className="text-lg font-bold font-display text-foreground">B2</div>
-                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">English</div>
+                <div className="text-lg font-bold font-display text-foreground">
+                  B2
+                </div>
+                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">
+                  English
+                </div>
               </div>
               <div className="p-2.5 border border-border bg-background/50">
-                <div className="text-lg font-bold font-display text-foreground">100%</div>
-                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">TypeScript</div>
+                <div className="text-lg font-bold font-display text-foreground">
+                  100%
+                </div>
+                <div className="text-[9px] text-muted-foreground uppercase tracking-wider">
+                  TypeScript
+                </div>
               </div>
             </div>
 
@@ -219,7 +258,9 @@ export function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <Sparkles className="size-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                <span className="font-semibold text-[11px]">SprintHub Case Study</span>
+                <span className="font-semibold text-[11px]">
+                  SprintHub Case Study
+                </span>
               </div>
               <ArrowRight className="size-3.5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all" />
             </Link>

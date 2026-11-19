@@ -48,7 +48,7 @@ export function HeaderNav() {
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     scrollToSection(id, href);
@@ -128,7 +128,7 @@ export function HeaderNav() {
                 "transition-colors hover:text-foreground cursor-pointer",
                 isActive
                   ? "text-foreground font-semibold underline underline-offset-4"
-                  : "text-muted-foreground"
+                  : "text-muted-foreground",
               )}
             >
               {item.label}
@@ -172,7 +172,11 @@ export function HeaderNav() {
           title="Toggle navigation menu"
           aria-label="Toggle Navigation Menu"
         >
-          {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          {mobileMenuOpen ? (
+            <X className="size-5" />
+          ) : (
+            <Menu className="size-5" />
+          )}
         </Button>
       </div>
 
@@ -190,7 +194,7 @@ export function HeaderNav() {
                   "transition-colors py-2 border-b border-border/40 cursor-pointer",
                   isActive
                     ? "text-foreground font-bold"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {item.label}
