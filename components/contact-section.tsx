@@ -19,6 +19,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
+import { cn } from "@/lib/utils";
 
 export function ContactSection() {
   const { profile } = PORTFOLIO_DATA;
@@ -277,35 +278,36 @@ export function ContactSection() {
                     href={gmailUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] inline-flex items-center gap-1.5 transition-colors font-semibold"
+                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     Open in Gmail Web <ExternalLink className="size-3" />
                   </a>
 
                   <a
                     href={mailtoUrl}
-                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] inline-flex items-center gap-1.5 transition-colors font-semibold"
+                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     Default Email App <Mail className="size-3" />
                   </a>
 
-                  <Button
+                  <button
                     type="button"
-                    variant="outline"
-                    size="sm"
                     onClick={handleCopyDraft}
-                    className="rounded-none text-[11px] h-auto py-1.5 px-3 gap-1.5"
+                    className={cn(
+                      "px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer",
+                      copiedDraft && "border-emerald-500 text-emerald-400"
+                    )}
                   >
                     {copiedDraft ? (
                       <>
-                        <Check className="size-3 text-emerald-500" /> Draft Copied!
+                        Draft Copied! <Check className="size-3 text-emerald-400" />
                       </>
                     ) : (
                       <>
-                        <Copy className="size-3" /> Copy Full Draft
+                        Copy Full Draft <Copy className="size-3" />
                       </>
                     )}
-                  </Button>
+                  </button>
                 </div>
               </div>
             ) : (
