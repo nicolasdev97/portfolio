@@ -37,7 +37,7 @@ export function SprintHubCaseStudy() {
     <Container
       id="featured-project"
       component="section"
-      wrapperClassName="py-24 border-t border-border bg-card/20"
+      wrapperClassName="scroll-mt-16 py-24 border-t border-border bg-card/20"
       className="mx-auto max-w-7xl flex-1"
     >
       {/* Section Header */}

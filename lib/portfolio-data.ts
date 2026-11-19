@@ -71,7 +71,7 @@ export const PORTFOLIO_DATA = {
     socials: {
       github: "https://github.com/nicolasdev97",
       linkedin: "https://www.linkedin.com/in/nicolas-po",
-      email: "mailto:nicolas.po.im@gmail.com",
+      email: "#contact",
     },
     aboutNarrative: [
       "3+ years of commercial experience engineering scalable web applications, robust REST/GraphQL APIs, relational database optimization (PostgreSQL), and defensive testing suites.",

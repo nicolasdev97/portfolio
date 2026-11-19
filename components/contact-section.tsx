@@ -113,7 +113,7 @@ export function ContactSection() {
     <Container
       id="contact"
       component="section"
-      wrapperClassName="py-24 bg-card/40 border-t border-border"
+      wrapperClassName="scroll-mt-16 py-24 bg-card/40 border-t border-border"
       className="mx-auto max-w-7xl flex-1"
     >
       <div className="grid lg:grid-cols-12 gap-12 items-start">

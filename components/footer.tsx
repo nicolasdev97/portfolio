@@ -41,7 +41,7 @@ export function Footer() {
           </a>
           <a
             href={profile.socials.email}
-            title={`Send direct email to ${profile.email}`}
+            title="Jump to Contact Section & Direct Transmission"
             className="hover:text-primary transition-colors flex items-center gap-1.5"
           >
             <Mail className="size-3.5" /> EMAIL

@@ -18,7 +18,7 @@ export function ExperienceSection() {
     <Container
       id="experience"
       component="section"
-      wrapperClassName="py-24 border-t border-border bg-background"
+      wrapperClassName="scroll-mt-16 py-24 border-t border-border bg-background"
       className="mx-auto max-w-7xl flex-1"
     >
       {/* Section Header */}

@@ -123,8 +123,8 @@ export function HeroSection() {
               </a>
               <a
                 href={profile.socials.email}
-                title={`Send direct email to ${profile.email}`}
-                aria-label="Send direct email"
+                title="Jump to Contact Section & Direct Transmission"
+                aria-label="Jump to Contact Section"
                 className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
               >
                 <Mail className="size-5" />

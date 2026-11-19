@@ -15,7 +15,7 @@ export function TechStackSection() {
     <Container
       id="skills"
       component="section"
-      wrapperClassName="py-24 bg-secondary/15 border-t border-border"
+      wrapperClassName="scroll-mt-16 py-24 bg-secondary/15 border-t border-border"
       className="mx-auto max-w-7xl flex-1"
     >
       <div className="grid lg:grid-cols-12 gap-12">
