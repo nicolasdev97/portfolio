@@ -21,12 +21,20 @@ import {
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
+interface EmailDraft {
+  subject: string;
+  body: string;
+  gmailUrl: string;
+  mailtoUrl: string;
+}
+
 export function ContactSection() {
   const { profile } = PORTFOLIO_DATA;
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedDraft, setCopiedDraft] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [submittedDraft, setSubmittedDraft] = useState<EmailDraft | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(profile.email);
@@ -34,7 +42,7 @@ export function ContactSection() {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const buildEmailDraft = () => {
+  const buildEmailDraft = (): EmailDraft => {
     const subject = `Portfolio Inquiry from ${formData.name.trim() || "Recruiter / Team"}`;
     const body = `Hi Nicolás,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent via portfolio contact form`;
 
@@ -50,8 +58,8 @@ export function ContactSection() {
   };
 
   const handleCopyDraft = () => {
-    const { subject, body } = buildEmailDraft();
-    const fullDraft = `To: ${profile.email}\nSubject: ${subject}\n\n${body}`;
+    const draft = submittedDraft || buildEmailDraft();
+    const fullDraft = `To: ${profile.email}\nSubject: ${draft.subject}\n\n${draft.body}`;
     navigator.clipboard.writeText(fullDraft);
     setCopiedDraft(true);
     setTimeout(() => setCopiedDraft(false), 2500);
@@ -59,20 +67,23 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { gmailUrl, mailtoUrl } = buildEmailDraft();
+    const draft = buildEmailDraft();
+    setSubmittedDraft(draft);
 
     // Try opening Gmail Web directly in a new tab (works reliably in all browsers)
-    const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    const newTab = window.open(draft.gmailUrl, "_blank", "noopener,noreferrer");
 
     // If popup was blocked or user prefers native client, fallback to mailto protocol
     if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-      window.location.href = mailtoUrl;
+      window.location.href = draft.mailtoUrl;
     }
 
     setFormSubmitted(true);
+    // Clear input fields immediately after sending
+    setFormData({ name: "", email: "", message: "" });
   };
 
-  const { gmailUrl, mailtoUrl } = buildEmailDraft();
+  const activeDraft = submittedDraft || buildEmailDraft();
 
   return (
     <Container
@@ -273,16 +284,29 @@ export function ContactSection() {
             {/* Interactive Feedback & Direct Client Options */}
             {formSubmitted ? (
               <div className="p-4 border border-border bg-secondary/30 space-y-3 font-mono text-xs">
-                <div className="flex items-center gap-2 text-foreground font-semibold">
-                  <Sparkles className="size-4 text-emerald-500" />
-                  <span>TRANSMISSION DISPATCH INITIALIZED</span>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-foreground font-semibold">
+                    <Sparkles className="size-4 text-emerald-500" />
+                    <span>TRANSMISSION DISPATCH INITIALIZED</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFormSubmitted(false);
+                      setSubmittedDraft(null);
+                    }}
+                    title="Dismiss transmission notice"
+                    className="text-[10px] text-muted-foreground hover:text-foreground underline underline-offset-2 cursor-pointer"
+                  >
+                    Dismiss
+                  </button>
                 </div>
                 <p className="text-[11px] text-muted-foreground leading-relaxed">
                   We opened your email client with the draft prepared. If your browser didn&apos;t open it automatically, choose an option below:
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <a
-                    href={gmailUrl}
+                    href={activeDraft.gmailUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Open email draft directly in Gmail Web (new tab)"
@@ -292,7 +316,7 @@ export function ContactSection() {
                   </a>
 
                   <a
-                    href={mailtoUrl}
+                    href={activeDraft.mailtoUrl}
                     title="Open email draft in your system's default email client"
                     className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] font-mono font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
