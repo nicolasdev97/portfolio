@@ -390,7 +390,7 @@ export default function Home() {
                   {post.title}
                 </h3>
                 <span className="font-mono text-xs text-muted-foreground whitespace-nowrap">
-                  {post.date} // {post.readTime}
+                  {`${post.date} // ${post.readTime}`}
                 </span>
               </div>
               <p className="text-muted-foreground mb-4 max-w-2xl">
