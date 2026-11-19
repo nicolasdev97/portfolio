@@ -16,12 +16,14 @@ import {
   Send,
   FileDown,
   ExternalLink,
+  Sparkles,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
 
 export function ContactSection() {
   const { profile } = PORTFOLIO_DATA;
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedDraft, setCopiedDraft] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
@@ -31,16 +33,45 @@ export function ContactSection() {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
+  const buildEmailDraft = () => {
+    const subject = `Portfolio Inquiry from ${formData.name.trim() || "Recruiter / Team"}`;
+    const body = `Hi Nicolás,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent via portfolio contact form`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      profile.email
+    )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    return { subject, body, gmailUrl, mailtoUrl };
+  };
+
+  const handleCopyDraft = () => {
+    const { subject, body } = buildEmailDraft();
+    const fullDraft = `To: ${profile.email}\nSubject: ${subject}\n\n${body}`;
+    navigator.clipboard.writeText(fullDraft);
+    setCopiedDraft(true);
+    setTimeout(() => setCopiedDraft(false), 2500);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
-      `Portfolio Inquiry from ${formData.name || "Recruiter"}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoUrl;
+    const { gmailUrl, mailtoUrl } = buildEmailDraft();
+
+    // Try opening Gmail Web directly in a new tab (works reliably in all browsers)
+    const newTab = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+
+    // If popup was blocked or user prefers native client, fallback to mailto protocol
+    if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+      window.location.href = mailtoUrl;
+    }
+
     setFormSubmitted(true);
   };
+
+  const { gmailUrl, mailtoUrl } = buildEmailDraft();
 
   return (
     <Container
@@ -53,7 +84,7 @@ export function ContactSection() {
         {/* Left Column: Direct Contact Info (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-foreground text-xs font-mono mb-3">
               <Mail className="size-3.5" />
               <span>DIRECT CHANNELS</span>
             </div>
@@ -72,7 +103,7 @@ export function ContactSection() {
                 <span className="text-[10px] text-muted-foreground block">PRIMARY EMAIL</span>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-foreground hover:text-primary transition-colors font-semibold"
+                  className="text-foreground hover:underline font-semibold"
                 >
                   {profile.email}
                 </a>
@@ -82,11 +113,11 @@ export function ContactSection() {
                 variant="outline"
                 size="sm"
                 onClick={handleCopyEmail}
-                className="gap-1.5 text-xs font-mono"
+                className="gap-1.5 text-xs font-mono rounded-none"
               >
                 {copiedEmail ? (
                   <>
-                    <Check className="size-3 text-primary" /> Copied
+                    <Check className="size-3 text-emerald-500" /> Copied
                   </>
                 ) : (
                   <>
@@ -98,7 +129,7 @@ export function ContactSection() {
 
             {/* Location & Timezone */}
             <div className="p-4 border border-border bg-background flex items-center gap-3">
-              <MapPin className="size-4 text-primary shrink-0" />
+              <MapPin className="size-4 text-foreground shrink-0" />
               <div>
                 <span className="text-[10px] text-muted-foreground block">LOCATION & WORKSPACE</span>
                 <span className="text-foreground font-semibold">{profile.location}</span>
@@ -108,12 +139,12 @@ export function ContactSection() {
             {/* Phone */}
             {profile.phone && (
               <div className="p-4 border border-border bg-background flex items-center gap-3">
-                <Phone className="size-4 text-primary shrink-0" />
+                <Phone className="size-4 text-foreground shrink-0" />
                 <div>
                   <span className="text-[10px] text-muted-foreground block">DIRECT PHONE / WHATSAPP</span>
                   <a
                     href={`tel:${profile.phone.replace(/[^0-9+]/g, "")}`}
-                    className="text-foreground hover:text-primary transition-colors font-semibold"
+                    className="text-foreground hover:underline font-semibold"
                   >
                     {profile.phone}
                   </a>
@@ -127,10 +158,10 @@ export function ContactSection() {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border border-border bg-background hover:border-primary transition-colors flex items-center justify-between"
+                className="p-3 border border-border bg-background hover:border-foreground/50 transition-colors flex items-center justify-between"
               >
                 <span className="flex items-center gap-2">
-                  <Linkedin className="size-4 text-primary" /> LinkedIn
+                  <Linkedin className="size-4 text-foreground" /> LinkedIn
                 </span>
                 <ExternalLink className="size-3 text-muted-foreground" />
               </a>
@@ -139,10 +170,10 @@ export function ContactSection() {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border border-border bg-background hover:border-primary transition-colors flex items-center justify-between"
+                className="p-3 border border-border bg-background hover:border-foreground/50 transition-colors flex items-center justify-between"
               >
                 <span className="flex items-center gap-2">
-                  <Github className="size-4 text-primary" /> GitHub
+                  <Github className="size-4 text-foreground" /> GitHub
                 </span>
                 <ExternalLink className="size-3 text-muted-foreground" />
               </a>
@@ -152,10 +183,10 @@ export function ContactSection() {
             <a
               href={profile.cvPath}
               download={profile.cvFilename}
-              className="mt-4 block p-4 border border-primary/40 bg-primary/10 hover:bg-primary/15 transition-colors"
+              className="mt-4 block p-4 border border-border bg-secondary/30 hover:bg-secondary/60 transition-colors"
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-primary font-semibold">
+                <div className="flex items-center gap-2 text-foreground font-semibold">
                   <FileDown className="size-4" />
                   <span>DOWNLOAD COMPLETE CV (PDF)</span>
                 </div>
@@ -188,7 +219,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Sarah Connor / Tech Lead"
-                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-primary"
+                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground"
                 />
               </div>
 
@@ -203,7 +234,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="sconnor@enterprise.com"
-                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-primary"
+                  className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground"
                 />
               </div>
             </div>
@@ -219,22 +250,76 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="We are looking for a Full Stack Software Engineer to build scalable microservices and integrate LLM agents..."
-                className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-primary min-h-[140px]"
+                className="rounded-none font-mono text-xs bg-card/40 border-border focus:border-foreground min-h-[140px]"
               />
             </div>
 
             <Button
               type="submit"
               size="lg"
-              className="w-full rounded-none font-mono text-xs uppercase tracking-wider font-semibold gap-2 py-3"
+              className="w-full rounded-none font-mono text-xs uppercase tracking-wider font-semibold gap-2 py-3 cursor-pointer"
             >
               <Send className="size-3.5" /> Send Transmission
             </Button>
 
-            {formSubmitted && (
-              <p className="text-primary text-[11px] text-center pt-2">
-                ✓ Transmission client initialized! Your email client has been opened.
-              </p>
+            {/* Interactive Feedback & Direct Client Options */}
+            {formSubmitted ? (
+              <div className="p-4 border border-border bg-secondary/30 space-y-3 font-mono text-xs">
+                <div className="flex items-center gap-2 text-foreground font-semibold">
+                  <Sparkles className="size-4 text-emerald-500" />
+                  <span>TRANSMISSION DISPATCH INITIALIZED</span>
+                </div>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  We opened your email client with the draft prepared. If your browser didn&apos;t open it automatically, choose an option below:
+                </p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <a
+                    href={gmailUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] inline-flex items-center gap-1.5 transition-colors font-semibold"
+                  >
+                    Open in Gmail Web <ExternalLink className="size-3" />
+                  </a>
+
+                  <a
+                    href={mailtoUrl}
+                    className="px-3 py-1.5 border border-border bg-background hover:border-foreground text-foreground text-[11px] inline-flex items-center gap-1.5 transition-colors font-semibold"
+                  >
+                    Default Email App <Mail className="size-3" />
+                  </a>
+
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCopyDraft}
+                    className="rounded-none text-[11px] h-auto py-1.5 px-3 gap-1.5"
+                  >
+                    {copiedDraft ? (
+                      <>
+                        <Check className="size-3 text-emerald-500" /> Draft Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="size-3" /> Copy Full Draft
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-1">
+                <span>Direct delivery to {profile.email}</span>
+                <button
+                  type="button"
+                  onClick={handleCopyDraft}
+                  disabled={!formData.message}
+                  className="hover:text-foreground underline underline-offset-2 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  {copiedDraft ? "✓ Copied to clipboard" : "Copy draft to clipboard"}
+                </button>
+              </div>
             )}
           </form>
         </div>
