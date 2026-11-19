@@ -66,8 +66,8 @@ export const PORTFOLIO_DATA = {
     location: "Cali, Colombia (Open to Remote Worldwide)",
     availability: "AVAILABLE FOR HIRE // REMOTE WORLDWIDE",
     email: "nicolas.po.im@gmail.com",
-    cvPath: "/cv-nicolas-palacio.pdf",
-    cvFilename: "nicolas-palacio-cv.pdf",
+    cvPath: "/Nicolás-Palacio-CV-Public.pdf",
+    cvFilename: "Nicolás-Palacio-CV-Public.pdf",
     socials: {
       github: "https://github.com/nicolasdev97",
       linkedin: "https://www.linkedin.com/in/nicolas-po",

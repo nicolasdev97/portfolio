@@ -49,6 +49,8 @@ export function Footer() {
           <a
             href={profile.cvPath}
             download={profile.cvFilename}
+            target="_blank"
+            rel="noopener noreferrer"
             title="Download Nicolás Palacio's CV (PDF)"
             className="hover:text-primary transition-colors"
           >

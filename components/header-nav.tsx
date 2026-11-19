@@ -146,6 +146,8 @@ export function HeaderNav() {
         <a
           href={PORTFOLIO_DATA.profile.cvPath}
           download={PORTFOLIO_DATA.profile.cvFilename}
+          target="_blank"
+          rel="noopener noreferrer"
           title="Download Nicolás Palacio's CV (PDF)"
           className="inline-flex"
         >

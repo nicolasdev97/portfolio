@@ -182,6 +182,8 @@ export function ContactSection() {
             <a
               href={profile.cvPath}
               download={profile.cvFilename}
+              target="_blank"
+              rel="noopener noreferrer"
               title="Download complete CV in PDF format"
               className="mt-4 block p-4 border border-border bg-secondary/30 hover:bg-secondary/60 transition-colors"
             >
