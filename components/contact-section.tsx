@@ -236,17 +236,10 @@ export function ContactSection() {
 
           <form onSubmit={handleSubmit} noValidate className="space-y-5 font-mono text-xs">
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <label htmlFor="name" className="text-muted-foreground block text-[11px]">
-                    YOUR NAME // RECRUITER OR TEAM
-                  </label>
-                  {errors.name && (
-                    <span className="text-[10px] text-destructive font-mono">
-                      {errors.name}
-                    </span>
-                  )}
-                </div>
+              <div className="space-y-1.5">
+                <label htmlFor="name" className="text-muted-foreground block text-[11px]">
+                  YOUR NAME // RECRUITER OR TEAM
+                </label>
                 <Input
                   id="name"
                   value={formData.name}
@@ -260,19 +253,17 @@ export function ContactSection() {
                     errors.name && "border-destructive focus:border-destructive"
                   )}
                 />
+                {errors.name && (
+                  <p className="text-[11px] text-destructive font-mono">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <label htmlFor="email" className="text-muted-foreground block text-[11px]">
-                    REPLY EMAIL ADDRESS
-                  </label>
-                  {errors.email && (
-                    <span className="text-[10px] text-destructive font-mono">
-                      {errors.email}
-                    </span>
-                  )}
-                </div>
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="text-muted-foreground block text-[11px]">
+                  REPLY EMAIL ADDRESS
+                </label>
                 <Input
                   id="email"
                   type="email"
@@ -287,20 +278,18 @@ export function ContactSection() {
                     errors.email && "border-destructive focus:border-destructive"
                   )}
                 />
+                {errors.email && (
+                  <p className="text-[11px] text-destructive font-mono">
+                    {errors.email}
+                  </p>
+                )}
               </div>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <label htmlFor="message" className="text-muted-foreground block text-[11px]">
-                  TRANSMISSION CONTENT // ROLE DETAILS, SPRINT, OR PROPOSAL
-                </label>
-                {errors.message && (
-                  <span className="text-[10px] text-destructive font-mono">
-                    {errors.message}
-                  </span>
-                )}
-              </div>
+            <div className="space-y-1.5">
+              <label htmlFor="message" className="text-muted-foreground block text-[11px]">
+                TRANSMISSION CONTENT // ROLE DETAILS, SPRINT, OR PROPOSAL
+              </label>
               <Textarea
                 id="message"
                 rows={5}
@@ -315,6 +304,11 @@ export function ContactSection() {
                   errors.message && "border-destructive focus:border-destructive"
                 )}
               />
+              {errors.message && (
+                <p className="text-[11px] text-destructive font-mono">
+                  {errors.message}
+                </p>
+              )}
             </div>
 
             <Button
