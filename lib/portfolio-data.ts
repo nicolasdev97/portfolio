@@ -65,7 +65,6 @@ export const PORTFOLIO_DATA = {
     techSummary: "Node.js • TypeScript • Next.js • PostgreSQL",
     location: "Cali, Colombia (Open to Remote Worldwide)",
     availability: "AVAILABLE FOR HIRE // REMOTE WORLDWIDE",
-    phone: "(+57) 300 867 1364",
     email: "nicolas.po.im@gmail.com",
     cvPath: "/cv-nicolas-palacio.pdf",
     cvFilename: "nicolas-palacio-cv.pdf",

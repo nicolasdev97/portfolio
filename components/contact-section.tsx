@@ -10,7 +10,6 @@ import {
   Linkedin,
   Github,
   MapPin,
-  Phone,
   Copy,
   Check,
   Send,
@@ -149,23 +148,6 @@ export function ContactSection() {
                 <span className="text-foreground font-semibold">{profile.location}</span>
               </div>
             </div>
-
-            {/* Phone */}
-            {profile.phone && (
-              <div className="p-4 border border-border bg-background flex items-center gap-3">
-                <Phone className="size-4 text-foreground shrink-0" />
-                <div>
-                  <span className="text-[10px] text-muted-foreground block">DIRECT PHONE / WHATSAPP</span>
-                  <a
-                    href={`tel:${profile.phone.replace(/[^0-9+]/g, "")}`}
-                    title={`Call or message ${profile.phone}`}
-                    className="text-foreground hover:underline font-semibold"
-                  >
-                    {profile.phone}
-                  </a>
-                </div>
-              </div>
-            )}
 
             {/* Social Links: GitHub 1st, LinkedIn 2nd (Consistent with Hero & Footer) */}
             <div className="grid grid-cols-2 gap-3 pt-2">
