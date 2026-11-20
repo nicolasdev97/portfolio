@@ -1,9 +1,9 @@
 {
-  "name": "template-devstarter",
+  "name": "nicolas-palacio-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -11,7 +11,6 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
