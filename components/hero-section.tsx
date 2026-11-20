@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/zippystarter/container";
@@ -17,6 +19,29 @@ import { PORTFOLIO_DATA } from "@/lib/portfolio-data";
 
 export function HeroSection() {
   const { profile } = PORTFOLIO_DATA;
+
+  const handleScrollTo = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const headerOffset = 70;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    if (window.location.hash !== href) {
+      window.history.pushState(null, "", href);
+    }
+  };
 
   return (
     <Container
@@ -91,6 +116,9 @@ export function HeroSection() {
           <div className="flex flex-wrap gap-4 pt-4 items-center">
             <Link
               href="#featured-project"
+              onClick={(e) =>
+                handleScrollTo(e, "featured-project", "#featured-project")
+              }
               title="View SprintHub case study & architecture"
               className={cn(
                 "uppercase font-mono text-xs tracking-wider rounded-none",
@@ -102,6 +130,7 @@ export function HeroSection() {
 
             <Link
               href="#contact"
+              onClick={(e) => handleScrollTo(e, "contact", "#contact")}
               title="Jump to direct contact channels"
               className={cn(
                 "uppercase font-mono text-xs tracking-wider rounded-none",
@@ -140,6 +169,7 @@ export function HeroSection() {
               </a>
               <a
                 href={profile.socials.email}
+                onClick={(e) => handleScrollTo(e, "contact", "#contact")}
                 title="Jump to Contact Section & Direct Transmission"
                 aria-label="Jump to Contact Section"
                 className={cn(
@@ -253,6 +283,9 @@ export function HeroSection() {
             {/* Bridge CTA to SprintHub */}
             <Link
               href="#featured-project"
+              onClick={(e) =>
+                handleScrollTo(e, "featured-project", "#featured-project")
+              }
               title="Explore SprintHub case study & architecture"
               className="group flex items-center justify-between p-3 border border-border bg-secondary/30 hover:border-foreground/40 hover:bg-secondary/60 transition-colors text-xs text-foreground"
             >
